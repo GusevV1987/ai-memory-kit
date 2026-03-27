@@ -1,0 +1,8 @@
+# Cursor Rule Example
+
+Read and follow `path/to/ai-memory-kit/MASTER.md`.
+
+At session start:
+- read `path/to/ai-memory-kit/memory/handoff.md`
+- read `path/to/ai-memory-kit/MEMORY.md`
+- follow `path/to/ai-memory-kit/START.md`
