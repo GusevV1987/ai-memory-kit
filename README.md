@@ -4,7 +4,7 @@
 
 This is a starter kit for people who want Claude, ChatGPT, Gemini, Cursor, or another AI tool to remember context across sessions.
 
-> Companion repo for the article: [Every LLM is a genius with amnesia](https://gusevv1987.substack.com/)
+> Companion repo for the article: [Every LLM is a genius with amnesia](https://gusevv1987.substack.com/p/every-llm-is-a-genius-with-amnesia)
 
 ---
 
