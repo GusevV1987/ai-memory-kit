@@ -34,6 +34,11 @@ AI reads MEMORY.md                     AI updates handoff.md
  Context loaded                       Context saved
 ```
 
+Every session — in any tool — ends with the same **session close block** and rewrites a one-screen
+`handoff.md`, so the next session (even in a different tool) picks up exactly where you left off. The
+format is defined once in [skills/close/SKILL.md](skills/close/SKILL.md). If your tool can't edit
+files, the AI hands you the text to paste.
+
 ## What's Included
 
 ```text

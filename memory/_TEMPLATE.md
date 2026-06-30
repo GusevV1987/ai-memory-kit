@@ -1,33 +1,24 @@
 # YYYY-MM-DD
 
-## Summary
-[One-line description of what was accomplished]
+<!--
+Daily log. One file per day — it can hold several sessions.
+Add one "session close block" per session, newest at the BOTTOM, ordered by finish time.
+The block format below is the single source defined in skills/close/SKILL.md — keep it identical.
+Long-term facts go in MEMORY.md, not here.
+-->
 
-## Work Done
-- [Task 1]
-- [Task 2]
+## YYYY-MM-DD HH:MM — <short title> (<tool>)
 
-## Skills Used
-- [Skill name] — [why it was used]
+**Summary** — one line: what this session accomplished.
 
-## Skills Missing
-- [Workflow that should become a skill]
+**Work done**
+- <what changed / what was produced>
 
-## Skills Updated
-- [Skill name] — [what changed]
+**Next steps**
+- <what the next session should do>
 
-## Files Changed
-- `path/to/file.md` — [what changed]
+**Decisions** — include ONLY if a real decision was made
+- <decision> — <why>
 
-## Decisions Made
-- [Decision] — [why]
-
-## Blockers / Issues
-- [Any problems encountered]
-
-## Next Steps
-- [What to do next session]
-
-## Session Info
-- Tool: [Claude Code / Cursor / etc.]
-- Transcript: [path if available]
+**Blockers** — include ONLY if something is blocking progress
+- <what is stuck and what would unblock it>

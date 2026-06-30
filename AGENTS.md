@@ -42,7 +42,37 @@ Update today’s session log after meaningful work.
 
 ### End
 
-Run `/close` or follow [skills/close/SKILL.md](skills/close/SKILL.md).
+Run `/close`, or follow [skills/close/SKILL.md](skills/close/SKILL.md).
+
+Every session — in **any** tool — ends with the same **session close block**, appended to today’s
+`memory/YYYY-MM-DD.md` (newest at the bottom, ordered by finish time):
+
+```markdown
+## YYYY-MM-DD HH:MM — <short title> (<tool>)
+
+**Summary** — one line: what this session accomplished.
+
+**Work done**
+- <what changed / what was produced>
+
+**Next steps**
+- <what the next session should do>
+
+**Decisions** — include ONLY if a real decision was made
+- <decision> — <why>
+
+**Blockers** — include ONLY if something is blocking progress
+- <what is stuck and what would unblock it>
+```
+
+Always include the heading + Summary + Work done + Next steps. Don’t rely on session numbers — the
+timestamp orders sessions. Then rewrite `memory/handoff.md` from the **most recent** session.
+
+**If your tool can’t edit files** (e.g. a chat-only assistant): don’t claim the files were saved —
+output the exact text to paste into `memory/YYYY-MM-DD.md` and `memory/handoff.md`, and say where it goes.
+
+The full procedure (handoff tie-breaks, carried-item escalation, keeping `MEMORY.md` short) lives in
+[skills/close/SKILL.md](skills/close/SKILL.md) — the single source of truth for this block.
 
 ---
 

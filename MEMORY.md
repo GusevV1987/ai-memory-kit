@@ -2,6 +2,13 @@
 
 Long-term facts about you and your projects. For daily session details, see `memory/YYYY-MM-DD.md`.
 
+<!--
+Keep this file SHORT and skimmable. Don't assume your AI reads long files all the way to the end —
+many tools quietly read only the top of a long file, so anything buried at the bottom may be ignored.
+Treat MEMORY.md as an index: keep the durable facts here, and move longer detail into a topic file
+under context/ with a one-line pointer + link. If this file is getting long, trim it at /close.
+-->
+
 ---
 
 ## Identity

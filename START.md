@@ -16,30 +16,27 @@ Read these files first:
 
 Do not start by reading everything. Load the smallest useful context first.
 
+`MEMORY.md` is meant to be a short index — when an entry links to a topic file in `context/` that’s
+relevant to today’s goal, open that linked file. Don’t treat the one-line summary as the whole story.
+
 ### Handoff Freshness Check
 
 After reading `memory/handoff.md`:
 
 1. Compare the handoff date with today’s date.
-2. If the handoff is older than one day, check whether today’s log contains newer sessions.
-3. If yes, warn that the handoff may be stale.
+2. If the handoff is dated before today (or you have another concrete reason to suspect it’s stale),
+   open today’s `memory/YYYY-MM-DD.md` and use the **most recent session by finish time** (the lowest
+   block in the file if times tie or are missing). Otherwise trust the handoff and skip this — no need
+   to open the log every start.
+3. If newer sessions exist that the handoff doesn’t reflect, say the handoff may be stale.
 
-Suggested format:
+Then print a one-line summary so it’s clear what loaded:
 
 ```text
-SESSION CONTEXT
-
-Last session: [title]
-
-Pending:
-- [next step]
-
-Carried over:
-- [item]
-
-Warning:
-- Handoff may be stale
+Loaded handoff (last session: <title>, <date>). <N> next step(s). Ready.
 ```
+
+If the handoff looked stale, add: `⚠ Handoff may be stale — newer session found in today’s log.`
 
 ---
 
@@ -80,7 +77,11 @@ Use the smallest useful bundle.
 - stay focused on the stated goal
 - update the daily log after meaningful work
 - before declaring success, run `verify-before-done`
-- before ending the session, run `/close`
+- before ending the session, run `/close` (the session-record format is defined in
+  [skills/close/SKILL.md](skills/close/SKILL.md))
+
+If your tool can’t edit files, you can still run this loop — at `/close` the AI will hand you the
+exact text to paste into `memory/YYYY-MM-DD.md` and `memory/handoff.md`.
 
 ---
 
@@ -97,4 +98,4 @@ Use the smallest useful bundle.
 
 ---
 
-*Last updated: March 27, 2026*
+*Last updated: June 30, 2026*
