@@ -3,129 +3,91 @@ name: ship
 description: |
   Commit, push, and open a pull request after verification.
   Use when: "/ship", "ship it", "commit and push", or "create PR".
-version: 1.1.0
-date: 2026-03-20
+version: 1.2.0
+date: 2026-09-08
 ---
 
 # Ship
 
 **Trigger:** "/ship", "ship it", "send PR", "commit and push", "create PR"
 
-Use `/ship` when the work is actually ready for review.
+Use `/ship` when product work is ready for review. `/ship` does not replace `/close`.
 
-## Instructions
+---
 
-Follow these steps exactly.
+## Step 1: Verify
 
-## Step 1: Verification (CRITICAL)
+1. Follow `verify-before-done`: pick the **real** check for this project and run it.
+   - If you know the command (`npm test`, `pytest`, etc.), run **that one**. A non-zero exit is a failure — stop and report it.
+   - If you cannot tell what to run: `No test command found — not verified.` Do not print success.
+   - Never chain `cmd1 || cmd2 || echo "No tests found"` — that hides failures.
 
-Before committing, verify the work:
+2. List the **specific files** you intend to ship.
 
-1. **Run `verify-before-done`**
-   - Pick the real proof command for this work and run it before shipping.
+3. Scan intended files, then the staged diff, for secret-**like** keywords (`password`, `secret`, `api_key`, `token`, `credential`). A hit is a **lead**, not proof.
+   - Inspect each hit: is it a real secret, a harmless word in docs, or unclear?
+   - Stop if exposure is confirmed **or still unknown**. Ask the user.
+   - If the scanner itself fails, report that separately. Do not ship on a broken scan.
+   - An empty keyword search is **not** proof the files are safe.
 
-2. **Run tests / checks** (if the project has them):
-   ```bash
-   # Check if tests exist and run them
-   npm test 2>/dev/null || python -m pytest 2>/dev/null || echo "No tests found"
-   ```
+4. Show `git status -u` and `git diff --stat`. If the user already named this exact ship
+   action and these files, do not ask “Proceed?” again. Otherwise ask once.
 
-3. **Check for sensitive data:**
-   ```bash
-   git diff --cached | grep -iE "(password|secret|api.?key|token|credential)" || echo "No sensitive patterns found"
-   ```
+5. If on `main` or `master`, create a feature branch first.
 
-4. **Show what will be committed:**
-   ```bash
-   git status -u
-   git diff --stat
-   ```
+---
 
-5. **Ask:** "These changes look ready to ship. Proceed?"
-   - If tests failed, STOP and report the issue
-   - If sensitive data detected, STOP and warn the user
-
-6. **Check branch safety:**
-   - If you're on `main` or `master`, create a feature branch first.
-
-### Step 2: Commit
-
-Create a commit with a clear message:
+## Step 2: Commit (only after the user agrees)
 
 ```bash
-# If needed, create a branch first
-git checkout -b feature/<short-task-name>
-
-git add <specific-files>  # Prefer specific files over "git add ."
+git add <specific-files>   # never git add .
+git diff --cached          # keyword hits are leads; stop if exposure confirmed or unknown
 git commit -m "$(cat <<'EOF'
 <type>: <short description>
 
 <why this change was made>
-
-Co-Authored-By: AI Assistant <noreply@users.noreply.github.com>
 EOF
 )"
 ```
 
-**Commit types:** fix, feat, docs, refactor, test, chore
+---
 
-### Step 3: Push
+## Step 3: Push (only if the user asked to push)
+
+Commit is not push. Skip this step unless they asked.
 
 ```bash
-# Push with upstream tracking
 git push -u origin HEAD
 ```
 
-### Step 4: Create PR
+---
+
+## Step 4: Pull request (only if they asked)
 
 ```bash
 gh pr create --title "<short title>" --body "$(cat <<'EOF'
 ## Summary
-- <bullet point 1>
-- <bullet point 2>
+- <bullet>
 
 ## Test plan
-- [ ] <how to verify this works>
-
----
-Generated with AI Memory Kit
+- [ ] <how to verify>
 EOF
 )"
 ```
 
-### Step 5: Report
+If `gh` is missing, report that. Do not invent a merge.
 
-Show:
-- PR URL
-- What was included
-- Any warnings or notes
+---
 
-## Important Rule
+## After shipping
 
-`/ship` does not replace `/close`.
+Still run `/close` so the session is **recorded**. Close writes or prepares memory files.
+It does not commit unless the user asked to commit.
 
-After shipping, still run `/close` so the session writes handoff and commits the daily log.
+---
 
-## Example Output
+## When not to use
 
-```
-Verification:
-- Tests: Passed (or N/A)
-- Sensitive data check: Clean
-- Files to commit: 3 files changed
-
-Proceeding with ship...
-
-Committed: feat: Add OKBet odds parser
-Pushed to: origin/okbet-parser
-PR created: https://github.com/user/repo/pull/42
-
-Done! PR is ready for review.
-```
-
-## When NOT to Use
-
-- **Unrelated changes mixed together** — ask the user to separate them first
-- **Work in progress** — suggest a draft PR instead
-- **No changes** — report "Nothing to ship"
-- **No GitHub CLI / no remote** — commit and push only, then report what blocked PR creation
+- Mixed unrelated changes — split first
+- Work in progress — say so
+- No changes

@@ -1,1 +1,13 @@
+# Local junk
 .DS_Store
+
+# Accidental secrets — this does NOT untrack files already committed,
+# does NOT clean git history, and does NOT make MEMORY.md / memory/*.md
+# safe if you paste real secrets into those tracked templates.
+.env
+.env.*
+!.env.example
+credentials.*
+*.pem
+id_rsa
+id_rsa.pub

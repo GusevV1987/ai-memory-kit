@@ -1,19 +1,18 @@
 # Session Handoff
 
-Written by the AI during `/close`. Contains ONLY the most recent session's context.
+Written at `/close` by the designated closer, and only if this close is the **winning** session
+(later finish time; equal times → the lower block in the daily log).
+
+Not proof of current state. Open work lives in [open.md](open.md).
 
 ## Last Session
-- **2026-03-27 16:40 — Set up user authentication with NextAuth (Claude)**
+
+- *(none yet — first session)*
 
 ## Next Steps
-- Add Google OAuth provider to the login page
-- Write integration tests for the auth flow
-- Review the database schema for user profiles
 
-## Carried Over (3+ sessions)
-- Fix the mobile nav menu z-index issue — **decide at next /close**: do it, schedule it, delegate it, or drop it.
+- *(none)*
 
-<!--
-The AI rewrites this during /close (from the most recent session), and reads it first at /start.
-If your tool can't edit files, the AI will give you the text to paste here.
--->
+## Open work
+
+See [open.md](open.md).
