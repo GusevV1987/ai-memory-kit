@@ -154,7 +154,8 @@ If the tool cannot edit files, the close confirm line is:
 
 Retry: replace the **same heading** in the recorded log file. Do not append a copy.
 Replace a full `handoff.md` / `open.md` only if you still have the unchanged version
-it was built from; otherwise ask for current contents or give a single-row edit.
+it was built from. If that copy may have changed or you are uncertain, **stop** all
+shared-memory proposals except asking for current contents.
 
 ---
 
