@@ -72,7 +72,7 @@ Checklist: (1) a title, (2) exactly three neighborhoods, (3) a "what this is not
 Return findings only: pass / issues. Review is not permission to ship.
 ```
 
-Head decides: accept, reject, or park. Publishing still needs an explicit `/ship` from you later
+Paste the reviewer’s findings into the original head chat; ask the head to accept, reject, or park each issue. Publishing still needs an explicit `/ship` from you later
 (this exercise should not ship).
 
 ---
@@ -81,7 +81,7 @@ Head decides: accept, reject, or park. Publishing still needs an explicit `/ship
 
 If the tools cannot see the same disk, paste the same blocks above plus the outline text
 into the next chat. Also attach/paste **actual contents** of `MASTER.md` **and** `AGENTS.md`,
-`START.md`, `skills/close/SKILL.md`, the three `memory/` state files, and the current or
+`START.md`, `skills/close/SKILL.md`, `MEMORY.md`, `memory/handoff.md`, `memory/open.md`, and the current or
 recorded daily log (or `memory/_TEMPLATE.md` if none exists yet).
 A saved Custom Instructions pointer cannot open those paths.
 
