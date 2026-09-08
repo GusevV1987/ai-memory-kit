@@ -1,8 +1,14 @@
-# Cursor Rule Example
+---
+description: AI memory kit pointer
+alwaysApply: true
+---
 
-Read and follow `path/to/ai-memory-kit/MASTER.md`.
+# Cursor rule example
 
-At session start:
-- read `path/to/ai-memory-kit/memory/handoff.md`
-- read `path/to/ai-memory-kit/MEMORY.md`
-- follow `path/to/ai-memory-kit/START.md`
+See [Cursor rules](https://cursor.com/docs/rules). Do not overwrite an existing rule — add a pointer.
+
+Read and follow `AGENTS.md` and `START.md`.
+Shared memory: `MEMORY.md`, `memory/handoff.md`, `memory/open.md`.
+
+If I already stated the goal, do not ask again.
+Helpers: do not write memory files and do not /close.

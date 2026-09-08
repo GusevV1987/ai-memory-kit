@@ -1,101 +1,76 @@
-# /start — Universal Session Kickstart
+# /start — Session kickstart
 
-Use this at the beginning of a session.
+Use this at the beginning of a session. Prefer the smallest useful context.
 
 ---
 
-## Step 1: Load Context
+## Step 1: Load
 
-Read these files first:
+If this conversation did not already receive `MASTER.md` and `AGENTS.md` (system prompt, project rules, or an earlier attach), **read those two first**.
+
+Then read, in this order:
 
 | File | Why |
 |------|-----|
-| `memory/handoff.md` | What happened last session and what to do next |
-| `MEMORY.md` | Long-term priorities and decisions |
-| `memory/YYYY-MM-DD.md` | Only if you need today’s earlier session history |
+| `memory/handoff.md` | Last **winning** close — navigation, not current-truth |
+| `memory/open.md` | Unfinished work (this file wins if it disagrees with handoff) |
+| `MEMORY.md` | Long-term index. Open a linked `context/` file only if today's goal needs it |
 
-Do not start by reading everything. Load the smallest useful context first.
+If this tool cannot see the folder, the user must **attach or paste the actual contents** of those files (plus this `START.md` and `skills/close/SKILL.md`). A Custom Instructions snippet cannot open disk paths.
 
-`MEMORY.md` is meant to be a short index — when an entry links to a topic file in `context/` that’s
-relevant to today’s goal, open that linked file. Don’t treat the one-line summary as the whole story.
+Do not read everything else.
 
-### Handoff Freshness Check
+### Empty kit
 
-After reading `memory/handoff.md`:
+If `open.md` has only the header row and handoff has no real Last Session, say the kit is empty.
+Do not invent history. Ignore `DEMO` lines in examples — they are not tasks.
 
-1. Compare the handoff date with today’s date.
-2. If the handoff is dated before today (or you have another concrete reason to suspect it’s stale),
-   open today’s `memory/YYYY-MM-DD.md` and use the **most recent session by finish time** (the lowest
-   block in the file if times tie or are missing). Otherwise trust the handoff and skip this — no need
-   to open the log every start.
-3. If newer sessions exist that the handoff doesn’t reflect, say the handoff may be stale.
+### Winning close (same rule as `/close`)
 
-Then print a one-line summary so it’s clear what loaded:
+Later finish time wins. Equal or missing times → **lower block in the daily log wins**.
+If today's (or the recorded day's) log has a winning heading that disagrees with handoff,
+say the handoff may be stale and prefer the log + `open.md`. If those files cannot be read: `unknown`.
+
+Print one line:
 
 ```text
-Loaded handoff (last session: <title>, <date>). <N> next step(s). Ready.
+Loaded handoff (<title or empty>, <date or none>). Open work: see memory/open.md. Ready.
 ```
 
-If the handoff looked stale, add: `⚠ Handoff may be stale — newer session found in today’s log.`
+---
+
+## Step 2: Goal
+
+If the user already stated what to do — including "continue [named open items]" — **use it**.
+That named continuation is authority to record a transfer on those rows at close.
+Do not tell them they must drop inherited work they asked to finish.
+
+Ask `What do you want to accomplish this session?` **only when no goal is present.**
+
+Wait for an answer only in that case.
 
 ---
 
-## Step 2: Ask About The Goal
+## Step 3: Smallest useful mode
 
-Ask one question:
+| If the work is… | Then |
+|-----------------|------|
+| debugging | `investigate` → `verify-before-done` |
+| building | `verify-before-done` (and `tdd` if they want tests first) |
+| planning / writing | stay on the stated goal |
 
-> What do you want to accomplish this session?
-
-Wait for the answer before recommending workflows.
-
----
-
-## Step 3: Match The Work Mode
-
-Use the smallest useful bundle.
-
-| Mode | Signals | Recommend |
-|------|---------|-----------|
-| Debugging | broken, error, not working, investigate | `investigate` -> `tdd` -> `verify-before-done` |
-| Product thinking | idea, product, feature, MVP, customer | `office-hours` -> `scope` -> `plan-ceo-review` |
-| Building | implement, add, change, refactor | `tdd` -> `review` -> `verify-before-done` |
-| Writing or planning | article, memo, summary, plan | `retro` or `plan-ceo-review` depending on the goal |
-
-### Useful Add-Ons
-
-| If the user needs... | Use |
-|----------------------|-----|
-| research | `research-agent` |
-| code explained simply | `code-explainer` |
-| idea capture | `idea` |
-| repeated-behavior cleanup | `reflect` |
+Do not dump a skill menu. Two-model review (different **model family**, read-only) is for
+consequential work; see [examples/beginner.md](examples/beginner.md). Another app of the
+same family is not an independent review.
 
 ---
 
 ## Step 4: Proceed
 
-- stay focused on the stated goal
-- update the daily log after meaningful work
-- before declaring success, run `verify-before-done`
-- before ending the session, run `/close` (the session-record format is defined in
-  [skills/close/SKILL.md](skills/close/SKILL.md))
+- Stay on the stated goal.
+- Helpers do not write shared memory.
+- Before claiming done, run `verify-before-done`.
+- Before ending, follow [skills/close/SKILL.md](skills/close/SKILL.md).
 
-If your tool can’t edit files, you can still run this loop — at `/close` the AI will hand you the
-exact text to paste into `memory/YYYY-MM-DD.md` and `memory/handoff.md`.
-
----
-
-## Reference
-
-| File | Purpose |
-|------|---------|
-| `MASTER.md` | permanent instructions |
-| `AGENTS.md` | cross-tool operating rules |
-| `MEMORY.md` | long-term context |
-| `IDEAS.md` | idea backlog |
-| `skills/README.md` | skill guide |
-| `agents/README.md` | agent guide |
-
----
-
-*Last updated: June 30, 2026*
+If this tool cannot edit files, the user must attach/paste procedure + state files
+(see Step 1). Close will prepare paste text and must say it was **not saved**.

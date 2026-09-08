@@ -2,9 +2,11 @@
 
 <!--
 Daily log. One file per day — it can hold several sessions.
-Add one "session close block" per session, newest at the BOTTOM, ordered by finish time.
-The block format below is the single source defined in skills/close/SKILL.md — keep it identical.
-Long-term facts go in MEMORY.md, not here.
+Add one close block per session, newest at the BOTTOM.
+Block shape is defined in skills/close/SKILL.md — keep it identical.
+A retry of an already-recorded close keeps this same file and the same heading,
+even after midnight. Find that heading anywhere in the file; do not append a copy.
+Long-term facts go in MEMORY.md. Unfinished work goes in memory/open.md.
 -->
 
 ## YYYY-MM-DD HH:MM — <short title> (<tool>)

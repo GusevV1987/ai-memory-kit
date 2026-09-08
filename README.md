@@ -2,176 +2,90 @@
 
 **Give your AI a memory.**
 
-This is a starter kit for people who want Claude, ChatGPT, Gemini, Cursor, or another AI tool to remember context across sessions.
+Plain-text files so Claude, ChatGPT, Gemini, Cursor, bb, or anything that can read markdown
+can keep context across sessions.
 
-> Companion repo for the article: [Every LLM is a genius with amnesia](https://gusevv1987.substack.com/p/every-llm-is-a-genius-with-amnesia)
-
----
-
-## What This Is
-
-A small set of plain-text files that gives your AI:
-
-- permanent instructions
-- long-term memory
-- a session handoff
-- reusable workflows
+> Companion to: [Every LLM is a genius with amnesia](https://gusevv1987.substack.com/p/every-llm-is-a-genius-with-amnesia)
 
 No framework. No database. No vendor lock-in.
 
-If your AI can read markdown files, it can use this.
+---
 
-## How It Works
+## Private copy first
 
-```text
-Session Start                          Session End
-     |                                      |
-     v                                      v
-AI reads handoff.md -----> Work -----> AI writes daily log
-AI reads MEMORY.md                     AI updates handoff.md
-     |                                      |
-     v                                      v
- Context loaded                       Context saved
-```
+Use this kit **privately**. Fill `MASTER.md` and `MEMORY.md` with your notes only in your working copy.
 
-Every session — in any tool — ends with the same **session close block** and rewrites a one-screen
-`handoff.md`, so the next session (even in a different tool) picks up exactly where you left off. The
-format is defined once in [skills/close/SKILL.md](skills/close/SKILL.md). If your tool can't edit
-files, the AI hands you the text to paste.
+Do not publish a personalized clone. `.gitignore` does not make tracked templates or git history safe.
+If you later want a public repo, follow [PUBLISHING.md](PUBLISHING.md) (reviewed fictional export,
+including `memory/open.md`, logs, and history).
 
-## What's Included
+---
+
+## How it works
 
 ```text
-ai-memory-kit/
-├── MASTER.md                 # Permanent instructions for your AI
-├── AGENTS.md                 # Cross-tool operating rules
-├── MEMORY.md                 # Long-term facts and decisions
-├── START.md                  # Session-start workflow
-├── QUICKSTART.md             # Beginner setup guide
-├── IDEAS.md                  # Optional idea backlog
-├── LICENSE                   # MIT license
-├── memory/
-│   ├── _TEMPLATE.md          # Daily log template
-│   ├── handoff.md            # Latest-session handoff
-│   └── corrections-queue.json# Optional review queue for /reflect
-├── skills/
-│   ├── README.md
-│   ├── start/
-│   ├── close/
-│   ├── investigate/
-│   ├── verify-before-done/
-│   ├── tdd/
-│   ├── claudeception/
-│   ├── idea/
-│   ├── reflect/
-│   ├── review/
-│   ├── ship/
-│   ├── scope/
-│   ├── office-hours/
-│   ├── retro/
-│   └── plan-ceo-review/
-├── agents/
-│   ├── README.md
-│   ├── research-agent/
-│   └── code-explainer/
-└── context/
-    ├── identity-example.md
-    ├── company-example.md
-    └── tech-stack-example.md
+Start                         Close
+  |                             |
+  v                             v
+handoff.md + open.md          daily log (this session only)
+MEMORY.md                     open.md (unfinished work)
+  |                           handoff.md (if this close won)
+  v                             v
+Context loaded                Recorded — not published
 ```
 
-## What This Repo Is Not
+- **Start:** read [START.md](START.md). If you already said the goal, the AI should not ask again.
+- **Close:** follow [skills/close/SKILL.md](skills/close/SKILL.md). Preparing paste text is **not saved**.
+- **Unfinished work:** [memory/open.md](memory/open.md) — not last-session next steps.
+- Git commit/push is **not** part of close unless you ask for that exact action.
 
-This is a **starter kit**, not my full private AI operating system.
+---
 
-That means:
+## Day one
 
-- everything here is safe to study and adapt
-- some advanced automations are intentionally not included
-- the repo is designed to be understandable, not exhaustive
+1. Copy this folder.
+2. Put your name in [MASTER.md](MASTER.md). Leave live `MEMORY.md`, `memory/handoff.md`, and
+   `memory/open.md` empty until they are your real notes.
+3. Point one AI at this folder ([QUICKSTART.md](QUICKSTART.md)).
+4. Give a goal in the first message. Say `/close` or "wrap up" when done.
+5. Optional: run the two-model exercise in [examples/beginner.md](examples/beginner.md)
+   (you can write with the first model; a **different model family** reviews). A separate
+   executor is optional. Paste works if tools cannot share files.
 
-## Quick Start
+Day-one skills: `start` and `close`. The other files in [skills/](skills/) are later.
 
-See [QUICKSTART.md](QUICKSTART.md) for the full walkthrough.
+---
 
-Short version:
+## Connect a tool
 
-1. Download or fork this repo.
-2. Edit [MASTER.md](MASTER.md) with your name, role, and communication preferences.
-3. Edit [MEMORY.md](MEMORY.md) with your current projects.
-4. Point your AI tool at this folder.
-5. Start a session by saying `/start` or asking the AI to read [START.md](START.md).
+| Tool | Pointer (do not overwrite an existing rule file — add a pointer) |
+|------|------------------------------------------------------------------|
+| Claude Code | [examples/CLAUDE.md](examples/CLAUDE.md) — Claude loads `CLAUDE.md` ([docs](https://code.claude.com/docs/en/memory)) |
+| Cursor | [examples/cursor-rule.mdc](examples/cursor-rule.mdc) — [Cursor rules](https://cursor.com/docs/rules) |
+| ChatGPT / chat-only | Attach/paste **file contents** each time ([examples/chatgpt-custom-instructions.md](examples/chatgpt-custom-instructions.md)). Custom Instructions cannot read disk. |
+| Codex / repo tools | Root [AGENTS.md](AGENTS.md) ([docs](https://learn.chatgpt.com/docs/agent-configuration/agents-md)) |
+| bb (optional) | [examples/bb.md](examples/bb.md) |
+| Anything else | `Read START.md and follow it` (loads `MASTER.md` / `AGENTS.md` if missing). |
 
-## Ready-To-Copy Examples
+Slash commands (`/start`) work only where the tool actually has skills.
 
-If you want concrete setup files, see [examples/](examples/):
+---
 
-- [examples/CLAUDE.md](examples/CLAUDE.md)
-- [examples/cursor-rule.mdc](examples/cursor-rule.mdc)
-- [examples/chatgpt-custom-instructions.md](examples/chatgpt-custom-instructions.md)
+## Words we use
 
-## Publishing This Publicly
+| Word | Means |
+|------|--------|
+| Draft | Text in chat, not in the folder |
+| Verified | A check was run and its output read |
+| Saved locally | The tool **wrote** files here |
+| Not saved | Paste text was prepared only |
+| Committed / pushed | Git, and only after you asked for that action |
+| Merged / deployed | Never part of `/close` |
 
-If you want to publish this as a public GitHub repo, use [PUBLISHING.md](PUBLISHING.md).
-
-That guide includes:
-
-- the simplest browser-only publishing path
-- the better GitHub Desktop path
-- recommended repo name, description, website, and topics
-
-## Works With
-
-| Tool | How to connect |
-|------|----------------|
-| Claude Code | Add a `CLAUDE.md` that tells Claude to read `MASTER.md` |
-| ChatGPT | Paste `MASTER.md` into Custom Instructions and upload other files when needed |
-| Cursor | Add a project rule that tells Cursor to read `MASTER.md` |
-| Gemini | Paste `MASTER.md` into the system-instructions field |
-| Any AI tool | If it can read files, point it at this folder |
-
-## Core Files
-
-| File | Why it matters |
-|------|----------------|
-| [MASTER.md](MASTER.md) | Permanent rules: who you are, how the AI should talk to you, and safety boundaries |
-| [MEMORY.md](MEMORY.md) | Long-term facts the AI should not forget |
-| [memory/handoff.md](memory/handoff.md) | The bridge from one session to the next |
-| [START.md](START.md) | A clean way to begin each session with context |
-
-## Included Skills
-
-This kit ships with 14 reusable skills:
-
-- `start`
-- `close`
-- `investigate`
-- `verify-before-done`
-- `tdd`
-- `claudeception`
-- `idea`
-- `reflect`
-- `review`
-- `ship`
-- `scope`
-- `office-hours`
-- `retro`
-- `plan-ceo-review`
-
-They live in [skills/](skills/) and are documented in [skills/README.md](skills/README.md).
-
-## Publishing Notes
-
-If you adapt this repo for yourself:
-
-- keep your working copy private
-- publish only a cleaned starter kit like this one
-- never publish real `MEMORY.md`, daily logs, or credential files
+---
 
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
----
 
 *Built by [Vladimir Gusev](https://gusev.ai).*

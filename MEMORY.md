@@ -1,12 +1,12 @@
 # Memory
 
 Long-term facts about you and your projects. For daily session details, see `memory/YYYY-MM-DD.md`.
+Unfinished work: [memory/open.md](memory/open.md).
 
 <!--
-Keep this file SHORT and skimmable. Don't assume your AI reads long files all the way to the end —
-many tools quietly read only the top of a long file, so anything buried at the bottom may be ignored.
-Treat MEMORY.md as an index: keep the durable facts here, and move longer detail into a topic file
-under context/ with a one-line pointer + link. If this file is getting long, trim it at /close.
+Keep this file SHORT. Treat it as an index: durable facts here, longer detail in context/
+with a one-line pointer. Fill placeholders with your real notes. Do not copy DEMO rows
+from examples/ into this file until they are yours.
 -->
 
 ---
@@ -14,32 +14,19 @@ under context/ with a one-line pointer + link. If this file is getting long, tri
 ## Identity
 
 - **[Your Name]** — [Your role] at [Your Company]
-- [Key detail about your working style, e.g., "Non-technical — directs developers and AI tools"]
+- [How you like to work]
 
 ## Active Projects
 
 *In priority order:*
 
-1. **[Project Alpha]** — [Brief description of your main project]
-2. **[Project Beta]** — [Brief description of your second project]
-3. **[Side Project]** — [Brief description, if any]
-
-<!-- Add as many as you need. Keep them in priority order so your AI knows what matters most. -->
+1. **[Project name]** — [one-line description]
+2.
+3.
 
 ## Key Decisions
 
-*Recent significant choices — prevents the AI from re-debating settled questions.*
+*Add a row only after you actually decided. Include why.*
 
 | Date | Decision | Why |
 |------|----------|-----|
-| 2026-01-15 | Chose Next.js over Remix for the frontend | Better deployment options on Vercel, team already knows React |
-| 2026-02-01 | PostgreSQL for the database, not MongoDB | Relational data model fits better, Supabase makes it easy |
-| 2026-02-20 | Launch in the US market first | Biggest market, English-only MVP is simpler |
-
-<!--
-Add decisions as you make them. Include the "why" — this is what stops
-the AI from suggesting alternatives you've already considered and rejected.
-
-Remove old decisions that are no longer relevant (archived features,
-completed projects, etc.)
--->

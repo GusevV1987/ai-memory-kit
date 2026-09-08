@@ -1,9 +1,12 @@
-# CLAUDE.md Example
+# CLAUDE.md example
 
-Read and follow `path/to/ai-memory-kit/MASTER.md`.
-Use `path/to/ai-memory-kit/` as the shared AI context folder.
+Point Claude at this folder. Do not overwrite an existing `CLAUDE.md` — add a pointer or
+`@AGENTS.md` import. Claude loads `CLAUDE.md`; see [memory](https://code.claude.com/docs/en/memory).
 
-At the start of a session:
-- read `path/to/ai-memory-kit/memory/handoff.md`
-- read `path/to/ai-memory-kit/MEMORY.md`
-- follow `path/to/ai-memory-kit/START.md`
+```markdown
+Read and follow AGENTS.md and START.md in this folder.
+Shared memory: MEMORY.md, memory/handoff.md, memory/open.md.
+
+If I already stated the goal, do not ask again.
+Helpers: do not write memory files and do not /close.
+```

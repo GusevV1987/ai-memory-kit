@@ -1,104 +1,37 @@
 # Skills
 
-Skills are reusable workflows for your AI.
+Reusable workflows. Day one: **start** and **close**. The rest is optional.
 
-Each skill is a markdown file that teaches the AI how to handle a recurring kind of work.
+Slash commands (`/start`) work only in tools that actually have skills.
+Otherwise: `Read skills/<name>/SKILL.md and follow it.`
 
 ---
 
-## Included In This Kit
+## Included
 
-| Skill | Purpose |
-|------|---------|
-| `start` | Start a session with context |
-| `close` | End a session cleanly |
-| `idea` | Capture ideas without losing momentum |
-| `reflect` | Review repeated corrections and preferences |
-| `investigate` | Find root cause before fixing bugs |
-| `verify-before-done` | Require proof before saying "done" |
-| `tdd` | Test-first development |
-| `review` | Review changes before landing them |
-| `ship` | Commit, push, and open a PR |
-| `scope` | Decide what belongs in MVP |
-| `office-hours` | Stress-test a product idea |
-| `retro` | Review patterns from recent work |
+| Skill | When |
+|------|------|
+| `start` | Begin a session; use a goal that was already stated |
+| `close` | Record the session (not commit/push unless asked) |
+| `ship` | Publish product work after a real check — does not replace close |
+| `idea` | Capture an idea without switching tasks |
+| `reflect` | Repeated corrections |
+| `investigate` | Find root cause before fixing |
+| `verify-before-done` | Proof before "done" |
+| `tdd` | Tests first |
+| `review` | Look at a diff before landing it |
+| `scope` | MVP vs later |
+| `office-hours` | Stress-test an idea |
+| `retro` | Patterns from recent work |
 | `plan-ceo-review` | Pressure-test a plan |
-| `claudeception` | Turn repeated lessons into new skills |
+| `claudeception` | Turn a repeated lesson into a skill |
 
 ---
 
-## How To Use Skills
-
-### In tools with native slash commands
-
-Invoke them directly, for example:
-
-- `/start`
-- `/close`
-
-### In tools without native skill support
-
-Tell the AI:
-
-> Read `skills/<skill-name>/SKILL.md` and follow it.
-
-Example:
-
-> Read `skills/investigate/SKILL.md` and use that workflow.
-
----
-
-## File Structure
+## Layout
 
 ```text
-skills/
-└── skill-name/
-    └── SKILL.md
+skills/<skill-name>/SKILL.md
 ```
 
-Optional extras:
-
-- `references/` for supporting reading
-- `scripts/` for helper scripts
-- `assets/` for non-text resources
-
----
-
-## Creating A New Skill
-
-1. Create a new folder in `skills/`
-2. Add a `SKILL.md`
-3. Describe:
-   - when to use it
-   - the rule
-   - the steps
-   - how to verify it worked
-
-Minimal example:
-
-```yaml
----
-name: my-skill
-description: Short one-line description
-version: 1.0.0
----
-```
-
-```markdown
-# My Skill
-
-## When to use
-...
-
-## Steps
-...
-
-## Verification
-...
-```
-
----
-
-## Rule Of Thumb
-
-If you find yourself repeating the same instructions three times, that is probably a skill.
+Optional: `references/`, `scripts/`, `assets/`.

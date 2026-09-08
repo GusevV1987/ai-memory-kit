@@ -2,31 +2,15 @@
 
 Cross-tool instructions for AI assistants working with **[Your Name]**.
 
----
-
-## Role
-
-I am a founder or operator using AI as a working partner.
-
-Read [MASTER.md](MASTER.md) for communication rules.
+Read [MASTER.md](MASTER.md) for how to talk and what is off-limits.
 
 ---
 
 ## What This Folder Is
 
-This repository is a portable AI memory kit.
+A portable AI memory kit: instructions, long-term notes, session handoff, and workflows.
 
-It is:
-
-- a context system
-- a session handoff system
-- a workflow library
-
-It is not:
-
-- a secret vault
-- a place for real credentials
-- a public dump of your private operating history
+It is not a secret vault and not a dump of private history.
 
 ---
 
@@ -34,18 +18,22 @@ It is not:
 
 ### Start
 
-Read and follow [START.md](START.md).
+Follow [START.md](START.md). If the user already said the goal (including "continue [named items]"), use it.
 
 ### During
 
-Update today’s session log after meaningful work.
+Update today's log after meaningful work if you are the designated closer.
 
 ### End
 
-Run `/close`, or follow [skills/close/SKILL.md](skills/close/SKILL.md).
+Follow [skills/close/SKILL.md](skills/close/SKILL.md).
 
-Every session — in **any** tool — ends with the same **session close block**, appended to today’s
-`memory/YYYY-MM-DD.md` (newest at the bottom, ordered by finish time):
+Helpers and one-task workers **never** write `memory/` shared files, even if a parent says "close."
+
+If the user asks **this** session to close and no other closer is named, this session records
+(typical when working alone).
+
+Every session records the same **close block** in `memory/YYYY-MM-DD.md` (newest at the bottom):
 
 ```markdown
 ## YYYY-MM-DD HH:MM — <short title> (<tool>)
@@ -65,105 +53,27 @@ Every session — in **any** tool — ends with the same **session close block**
 - <what is stuck and what would unblock it>
 ```
 
-Always include the heading + Summary + Work done + Next steps. Don’t rely on session numbers — the
-timestamp orders sessions. Then rewrite `memory/handoff.md` from the **most recent** session.
+Always include heading + Summary + Work done + Next steps. No session numbers — the timestamp
+orders sessions. Then refresh `memory/handoff.md` **only if this block is the winning close**
+(later finish time; equal times → lower block in the log). Unfinished work lives in
+[memory/open.md](memory/open.md).
 
-**If your tool can’t edit files** (e.g. a chat-only assistant): don’t claim the files were saved —
-output the exact text to paste into `memory/YYYY-MM-DD.md` and `memory/handoff.md`, and say where it goes.
-
-The full procedure (handoff tie-breaks, carried-item escalation, keeping `MEMORY.md` short) lives in
-[skills/close/SKILL.md](skills/close/SKILL.md) — the single source of truth for this block.
+If this tool cannot edit files: `Not saved — exact paste text prepared.` Do not claim files were saved.
 
 ---
 
-## Available Skills
+## Skills
 
-These are the skills included in this starter kit:
+Day one: `start` and `close`. Optional later: see [skills/README.md](skills/README.md).
 
-| Skill | Purpose |
-|------|---------|
-| `/start` | Load context and begin the session |
-| `/close` | Save the session cleanly |
-| `/idea` | Capture ideas without losing flow |
-| `/reflect` | Review and apply repeated corrections |
-| `investigate` | Root-cause-first debugging |
-| `verify-before-done` | Require proof before claiming done |
-| `tdd` | Test-first development |
-| `review` | Pre-merge review mindset |
-| `ship` | Commit, push, and create a PR when appropriate |
-| `scope` | Decide MVP vs later |
-| `office-hours` | Stress-test new product ideas |
-| `retro` | Review patterns from recent work |
-| `plan-ceo-review` | Pressure-test plans before execution |
-| `claudeception` | Turn repeated lessons into reusable skills |
-
-See [skills/README.md](skills/README.md) for details.
-
----
-
-## Specialized Agents
-
-Two agent templates are included:
-
-| Agent | Purpose |
-|-------|---------|
-| `research-agent` | Find reliable sources and summarize them clearly |
-| `code-explainer` | Explain code in plain language |
-
-See [agents/README.md](agents/README.md).
+If the tool has no slash commands, say: `Read skills/<name>/SKILL.md and follow it.`
 
 ---
 
 ## Boundaries
 
-### Never Do
-
-- read or expose real credential files unless explicitly asked
-- publish private logs or internal strategy by accident
-- use jargon when plain language would do
-- pretend a check passed if you did not run it
-
-### Always Do
-
-- explain technical ideas clearly
-- lead with the executive summary
-- say what changed, why it matters, and what remains
-- keep the handoff accurate
-
-### Ask First
-
-- before deleting user data
-- before changing production settings
-- before making broad multi-file changes that change behavior
-
----
-
-## Reference Files
-
-| File | Purpose |
-|------|---------|
-| `MASTER.md` | Permanent instructions |
-| `MEMORY.md` | Long-term memory |
-| `START.md` | Session-start workflow |
-| `IDEAS.md` | Idea backlog |
-| `memory/handoff.md` | Latest-session bridge |
-| `skills/README.md` | Skill usage guide |
-| `agents/README.md` | Agent usage guide |
-
----
-
-## Public Starter Kit Rule
-
-If this repo is public, keep it example-driven.
-
-Do not add:
-
-- real private handoffs
-- real customer notes
-- live credentials
-- confidential strategy memos
-
-Use templates and examples instead.
+Never expose credentials or private documents. Never claim a check passed if you did not run it.
+Ask before deleting user data, changing production, or broad multi-file behavior changes.
 
 ---
 
