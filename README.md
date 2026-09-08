@@ -1,86 +1,63 @@
 # AI Memory Kit
 
-**Give your AI a memory.**
-
-Plain-text files so Claude, ChatGPT, Gemini, Cursor, bb, or anything that can read markdown
-can keep context across sessions.
+**Portable working context for AI** — markdown files in a folder you keep.
+A file-capable tool can read them. A chat-only tool needs you to attach or paste
+the contents. Nothing here is auto-read or auto-synced into every AI.
 
 > Companion to: [Every LLM is a genius with amnesia](https://gusevv1987.substack.com/p/every-llm-is-a-genius-with-amnesia)
 
 No framework. No database. No vendor lock-in.
 
----
-
-## Private copy first
-
-Use this kit **privately**. Fill `MASTER.md` and `MEMORY.md` with your notes only in your working copy.
-
-Do not publish a personalized clone. `.gitignore` does not make tracked templates or git history safe.
-If you later want a public repo, follow [PUBLISHING.md](PUBLISHING.md) (reviewed fictional export,
-including `memory/open.md`, logs, and history).
+**bb** organizes projects and conversations. The connected AI service (the
+**tool**) provides access. The selected **model** does the work. You do not need
+three subscriptions.
 
 ---
 
-## How it works
+## Two ways in
 
-```text
-Start                         Close
-  |                             |
-  v                             v
-handoff.md + open.md          daily log (this session only)
-MEMORY.md                     open.md (unfinished work)
-  |                           handoff.md (if this close won)
-  v                             v
-Context loaded                Recorded — not published
-```
+### 1. Work in bb (team path)
 
-- **Start:** read [START.md](START.md). If you already said the goal, the AI should not ask again.
-- **Close:** follow [skills/close/SKILL.md](skills/close/SKILL.md). Preparing paste text is **not saved**.
-- **Unfinished work:** [memory/open.md](memory/open.md) — not last-session next steps.
-- Git commit/push is **not** part of close unless you ask for that exact action.
+For colleagues who need a first useful task across models, in bb.
 
----
+**Start here:** [BB-QUICKSTART.md](BB-QUICKSTART.md)
 
-## Day one
+After bb and a provider are set up, run the supplied fictional office task,
+get a second-family review, and wrap up locally. No coding.
 
-1. Copy this folder.
-2. Put your name in [MASTER.md](MASTER.md). Leave live `MEMORY.md`, `memory/handoff.md`, and
-   `memory/open.md` empty until they are your real notes.
-3. Point one AI at this folder ([QUICKSTART.md](QUICKSTART.md)).
-4. Give a goal in the first message. Say `/close` or "wrap up" when done.
-5. Optional: run the two-model exercise in [examples/beginner.md](examples/beginner.md)
-   (you can write with the first model; a **different model family** reviews). A separate
-   executor is optional. Paste works if tools cannot share files.
+### 2. Build a portable workspace (founder path)
 
-Day-one skills: `start` and `close`. The other files in [skills/](skills/) are later.
+For people wiring this folder into several tools and growing it on purpose.
+
+**Start here:** [WORKSPACE-GUIDE.md](WORKSPACE-GUIDE.md)
+
+Same files, tool-agnostic. Customize only what you need. [QUICKSTART.md](QUICKSTART.md)
+is a short map of both paths and existing tool links.
 
 ---
 
-## Connect a tool
+## Keep personalized copies private
 
-| Tool | Pointer (do not overwrite an existing rule file — add a pointer) |
-|------|------------------------------------------------------------------|
-| Claude Code | [examples/CLAUDE.md](examples/CLAUDE.md) — Claude loads `CLAUDE.md` ([docs](https://code.claude.com/docs/en/memory)) |
-| Cursor | [examples/cursor-rule.mdc](examples/cursor-rule.mdc) — [Cursor rules](https://cursor.com/docs/rules) |
-| ChatGPT / chat-only | Attach/paste **MASTER.md and AGENTS.md**, procedures, state, and current log when needed ([example](examples/chatgpt-custom-instructions.md)). Custom Instructions cannot read disk. |
-| Codex / repo tools | Root [AGENTS.md](AGENTS.md) ([docs](https://learn.chatgpt.com/docs/agent-configuration/agents-md)) |
-| bb (optional) | [examples/bb.md](examples/bb.md) |
-| Anything else | `Read START.md and follow it` (loads `MASTER.md` / `AGENTS.md` if missing). |
+Treat these files as **public templates**. Keep your filled-in copy private;
+do not assume it is private automatically.
 
-Slash commands (`/start`) work only where the tool actually has skills.
+- Do not put passwords, keys, or credential files here.
+- Team or customer data belongs only in approved tools and workspaces.
+- Before you share any copy, review **every file**, its metadata, and any git
+  history you keep. `.gitignore` does not protect content already tracked or
+  already in history.
+
+Written instructions are not a lock. They do not grant access a tool does not have.
 
 ---
 
-## Words we use
+## How it works (short)
 
-| Word | Means |
-|------|--------|
-| Draft | Text in chat, not in the folder |
-| Verified | A check was run and its output read |
-| Saved locally | The tool **wrote** files here |
-| Not saved | Paste text was prepared only |
-| Committed / pushed | Git, and only after you asked for that action |
-| Merged / deployed | Never part of `/close` |
+Start reads [START.md](START.md). Close follows [skills/close/SKILL.md](skills/close/SKILL.md).
+Unfinished work lives in [memory/open.md](memory/open.md). Paste is **not saved**
+until you put it in the folder. Git is not required to wrap up.
+
+Two-model walkthrough (file-capable or attach/paste): [examples/beginner.md](examples/beginner.md).
 
 ---
 

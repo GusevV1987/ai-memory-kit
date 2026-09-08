@@ -79,10 +79,13 @@ Protected name patterns (do not treat as a complete list): `*.env`, `credentials
 
 ---
 
-## PUBLIC REPO RULE
+## KEEP THIS COPY PRIVATE
 
-Your working copy should stay private. Before any public upload, follow `PUBLISHING.md`.
-`.gitignore` is not enough.
+Treat these files as public templates. Keep your filled copy private; do not
+assume it is private automatically.
+Do not put credentials here. Team or customer data belongs only in approved tools and workspaces.
+Before you share any copy, review every file, its metadata, and any git history you keep.
+`.gitignore` does not protect content already tracked or already in history.
 
 ---
 

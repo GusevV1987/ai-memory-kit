@@ -1,66 +1,34 @@
-# Quick Start
+# Quick start
 
-**About 10 minutes. No coding required.** Keep this folder private until you follow [PUBLISHING.md](PUBLISHING.md).
+Pick one path. Keep your filled copy private (see [README.md](README.md));
+do not assume it is private automatically.
+
+| Path | Who it is for | Guide |
+|------|----------------|--------|
+| **Work in bb** | Colleagues onboarding in bb, working across models | [BB-QUICKSTART.md](BB-QUICKSTART.md) |
+| **Portable workspace** | Founders and people customizing this folder for several tools | [WORKSPACE-GUIDE.md](WORKSPACE-GUIDE.md) |
+
+**bb** organizes projects and conversations. The connected AI service (the
+**tool**) provides access. The selected **model** does the work. You do not need
+three subscriptions.
+
+Older link: [examples/bb.md](examples/bb.md) points at the bb guide. Extra
+two-model copy-paste: [examples/beginner.md](examples/beginner.md).
 
 ---
 
-## 1. Get the files
-
-Download a ZIP and unzip it, or:
-
-```bash
-git clone https://github.com/GusevV1987/ai-memory-kit.git
-```
-
-## 2. Fill two files (yours stay private)
-
-In [MASTER.md](MASTER.md), replace `[Your Name]`, `[Your Company]`, `[Your role]`.
-
-In [MEMORY.md](MEMORY.md), replace the placeholders. Leave [memory/open.md](memory/open.md) and
-[memory/handoff.md](memory/handoff.md) empty until you have real sessions.
-Do not copy DEMO rows from `examples/` into live files.
-
-## 3. Point one AI here
+## Other tools (existing links)
 
 Do not overwrite an existing `CLAUDE.md` or Cursor rule. Add a pointer instead.
 
-- **Claude Code:** copy [examples/CLAUDE.md](examples/CLAUDE.md) or `@` import `AGENTS.md` ([Claude memory](https://code.claude.com/docs/en/memory)).
-- **Cursor:** add [examples/cursor-rule.mdc](examples/cursor-rule.mdc) under `.cursor/rules/` ([rules](https://cursor.com/docs/rules)).
-- **ChatGPT / chat-only:** Custom Instructions **cannot read your disk**. Attach or paste the **actual file contents** each session — rules: `MASTER.md` **and** `AGENTS.md`; procedure: `START.md`, `skills/close/SKILL.md`; state: `MEMORY.md`, `memory/handoff.md`, `memory/open.md`; plus the current/recorded daily log or `memory/_TEMPLATE.md` if needed. Name paste destinations. [example](examples/chatgpt-custom-instructions.md).
-- **Anything else that can read the folder:** `Read START.md and begin.` (`START.md` loads `MASTER.md` / `AGENTS.md` if they are not already in context.)
+- **Claude Code:** [examples/CLAUDE.md](examples/CLAUDE.md) ([memory docs](https://code.claude.com/docs/en/memory))
+- **Cursor:** [examples/cursor-rule.mdc](examples/cursor-rule.mdc) ([rules](https://cursor.com/docs/rules))
+- **ChatGPT / chat-only:** attach or paste real file contents each session —
+  [examples/chatgpt-custom-instructions.md](examples/chatgpt-custom-instructions.md)
+  (Custom Instructions cannot read disk)
+- **Codex / repo tools:** root [AGENTS.md](AGENTS.md)
+  ([docs](https://learn.chatgpt.com/docs/agent-configuration/agents-md))
+- **Anything that can read the folder:** `Read START.md and begin.`
 
-Optional bb: [examples/bb.md](examples/bb.md).
-
-## 4. First session
-
-You already have a goal. Say it in the first message, for example:
-
-> Read START.md. Draft a one-page fictional weekend walking tour of Lisbon. Write it to drafts/lisbon-outline.md. Title, three neighborhoods, and a "what this is not" paragraph. Leave a fourth neighborhood for later — record that follow-up in open.md when we close.
-
-The AI should **not** ask what you want to do.
-
-When finished: `wrap up` or `/close` (if this tool has that command).
-
-Expect: a daily-log block, maybe a row in `open.md`, handoff only if this close is the latest.
-If the tool cannot edit files, it must say **Not saved — exact paste text prepared** — then you paste.
-
-Git is not required. Close does not commit or push unless you ask.
-
-## 5. Next session (same or different model)
-
-> Continue the Lisbon outline.
-
-That names the open item. The closer records the transfer on that row. Other open rows stay put.
-
-Practice two models: [examples/beginner.md](examples/beginner.md). The first model can write;
-a different **model family** reviews. You do not need three subscriptions.
-
----
-
-## Common questions
-
-**Do I need all the skills?** No. Start and close are enough.
-
-**Chat-only?** Yes. Attach/paste **both** rule files plus procedures, state files, and the current log when needed (see step 3). Close **prepares** paste text. That is not a save until you paste it.
-
-**Slash commands?** Only if your tool actually has them. Otherwise read the `SKILL.md` file.
+Slash commands work only where the tool actually has them. Otherwise read the
+`SKILL.md` file.
