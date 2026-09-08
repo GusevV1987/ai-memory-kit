@@ -62,7 +62,7 @@ Day-one skills: `start` and `close`. The other files in [skills/](skills/) are l
 |------|------------------------------------------------------------------|
 | Claude Code | [examples/CLAUDE.md](examples/CLAUDE.md) — Claude loads `CLAUDE.md` ([docs](https://code.claude.com/docs/en/memory)) |
 | Cursor | [examples/cursor-rule.mdc](examples/cursor-rule.mdc) — [Cursor rules](https://cursor.com/docs/rules) |
-| ChatGPT / chat-only | Attach/paste **file contents** each time ([examples/chatgpt-custom-instructions.md](examples/chatgpt-custom-instructions.md)). Custom Instructions cannot read disk. |
+| ChatGPT / chat-only | Attach/paste **MASTER.md and AGENTS.md**, procedures, state, and current log when needed ([example](examples/chatgpt-custom-instructions.md)). Custom Instructions cannot read disk. |
 | Codex / repo tools | Root [AGENTS.md](AGENTS.md) ([docs](https://learn.chatgpt.com/docs/agent-configuration/agents-md)) |
 | bb (optional) | [examples/bb.md](examples/bb.md) |
 | Anything else | `Read START.md and follow it` (loads `MASTER.md` / `AGENTS.md` if missing). |

@@ -27,10 +27,14 @@ Forbidden: git commit, git push, other folders, real bookings, live APIs.
 Done when: the file has a title, three neighborhoods, and a one-paragraph "what this is not."
 If you cannot write files, put the full markdown in chat and say it is not saved.
 
+Leave adding a **fourth neighborhood** for a later session. When I close, record that
+follow-up as one open.md row (do not do it now).
+
 When the outline exists, stop. I will close this session myself if I want it recorded.
 ```
 
 Expected: the outline is written (or pasted). The model does **not** ask for a goal.
+Then say wrap up, for example: `Record the fourth-neighborhood follow-up in open.md. Do not write that neighborhood now.`
 
 ---
 
@@ -47,22 +51,24 @@ Allowed files: drafts/lisbon-outline.md only.
 Forbidden: git, other paths, real-world actions.
 
 Done when: title + three neighborhoods + "what this is not."
-Return: the file path or the full text, plus evidence (wrote file / not verified / not saved).
+Do not add a fourth neighborhood. Return: the file path or the full text, plus evidence
+(wrote file / not verified / not saved).
 ```
 
 ---
 
 ## Day 1 — read-only review (different model family)
 
-The reviewer must be a **different model family** than whoever wrote the outline
-(for example Claude vs GPT vs Gemini vs Grok). The same family in another app does **not** count.
+The reviewer must be a **different actual model family** than **every family that materially
+authored** the outline. The same family in another app does **not** count.
 If you do not know the family, independence is unverified.
 
 ```text
 Read-only review. Do not edit files. Do not /close. Do not publish.
 
 Artifact: drafts/lisbon-outline.md (or the pasted outline below).
-Check: is it one page, three neighborhoods, clearly fictional?
+Checklist: (1) a title, (2) exactly three neighborhoods, (3) a "what this is not" paragraph,
+(4) clearly fictional. A fourth neighborhood is out of scope for this review.
 Return findings only: pass / issues. Review is not permission to ship.
 ```
 
@@ -74,8 +80,9 @@ Head decides: accept, reject, or park. Publishing still needs an explicit `/ship
 ## Manual packet (no shared folder, no spawn)
 
 If the tools cannot see the same disk, paste the same blocks above plus the outline text
-into the next chat. Also attach/paste **actual contents** of `START.md`,
-`skills/close/SKILL.md`, `MASTER.md` or `AGENTS.md`, and the three `memory/` state files.
+into the next chat. Also attach/paste **actual contents** of `MASTER.md` **and** `AGENTS.md`,
+`START.md`, `skills/close/SKILL.md`, the three `memory/` state files, and the current or
+recorded daily log (or `memory/_TEMPLATE.md` if none exists yet).
 A saved Custom Instructions pointer cannot open those paths.
 
 ---
@@ -85,7 +92,10 @@ A saved Custom Instructions pointer cannot open those paths.
 If you are working alone and you say "wrap up" or `/close` in that same session, that session
 records. Helpers still must not.
 
-You should see either files written, or: `Not saved — exact paste text prepared.`
+You should see either files written, or: `Not saved — exact paste text prepared`
+(destinations named; unsaved lines say **prepared** / **proposed**).
+
+After Day 1 close, `open.md` must contain the fourth-neighborhood row (same item Day 2 names).
 
 DEMO close heading shape (identity is the heading, not a session number):
 

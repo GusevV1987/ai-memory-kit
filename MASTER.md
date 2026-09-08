@@ -65,13 +65,17 @@ Preparing paste text is **not saved**.
 
 ## FILE SAFETY
 
-Always safe: reading this folder; writing notes and docs here.
+Always safe: reading **non-credential** notes and docs in this folder; writing notes here.
 
-Ask first: deleting user data; production config; secrets; broad refactors.
+Ordinary access to this folder does **not** authorize reading or exposing secrets.
+Do not open credential files (`*.env`, `credentials.*`, `*.pem`, `id_rsa`, and similar)
+unless I explicitly name that file and ask.
+
+Ask first: deleting user data; production config; broad refactors.
 
 Never: print credentials; commit secrets; claim done without a check.
 
-Protected name patterns: `*.env`, `credentials.*`, `*secret*`, `*token*`, `*.key`.
+Protected name patterns (do not treat as a complete list): `*.env`, `credentials.*`, `*secret*`, `*token*`, `*.key`.
 
 ---
 

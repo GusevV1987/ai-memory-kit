@@ -24,9 +24,14 @@ Use `/ship` when product work is ready for review. `/ship` does not replace `/cl
 
 2. List the **specific files** you intend to ship.
 
-3. Scan those files (working tree / `git diff`) for secret-like strings (`password`, `secret`, `api_key`, `token`, `credential`). If found: STOP.
+3. Scan intended files, then the staged diff, for secret-**like** keywords (`password`, `secret`, `api_key`, `token`, `credential`). A hit is a **lead**, not proof.
+   - Inspect each hit: is it a real secret, a harmless word in docs, or unclear?
+   - Stop if exposure is confirmed **or still unknown**. Ask the user.
+   - If the scanner itself fails, report that separately. Do not ship on a broken scan.
+   - An empty keyword search is **not** proof the files are safe.
 
-4. Show `git status -u` and `git diff --stat`. Ask: "These files look ready to ship. Proceed?"
+4. Show `git status -u` and `git diff --stat`. If the user already named this exact ship
+   action and these files, do not ask “Proceed?” again. Otherwise ask once.
 
 5. If on `main` or `master`, create a feature branch first.
 
@@ -36,7 +41,7 @@ Use `/ship` when product work is ready for review. `/ship` does not replace `/cl
 
 ```bash
 git add <specific-files>   # never git add .
-git diff --cached          # scan staged diff again for secrets; STOP if hit
+git diff --cached          # keyword hits are leads; stop if exposure confirmed or unknown
 git commit -m "$(cat <<'EOF'
 <type>: <short description>
 

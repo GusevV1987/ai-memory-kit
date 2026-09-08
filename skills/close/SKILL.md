@@ -23,8 +23,12 @@ Leave the next session a clean starting point — in any tool.
 - If the user asks **this** session to close and no other closer is named, this session
   is the designated closer (typical when working alone). No extra ceremony.
 - If someone else was named as closer, **stop** unless the user transfers that role to you.
-- Written instructions are a convention, not a lock. If two sessions might be writing
-  the same row, or you are unsure, **stop** and ask.
+- Written instructions are a convention, not a lock.
+- Not knowing who owns an **unrelated** open row is not evidence of an active writer.
+  Leave that row as-is.
+- If you **see conflicting writes** (shared files changed since this close's last read),
+  pause **all** shared-memory writes (log, handoff, `open.md`, `MEMORY.md`) and ask.
+  There is no exception that still writes your own log block during a conflict.
 
 ---
 
@@ -81,7 +85,13 @@ Among recorded close headings:
 Rewrite `memory/handoff.md` **only if this block is the winner**.  
 Retrying an older/upper block (including the same minute as a later heading) **must not**
 replace a later session's handoff. If you are not the winner, leave handoff, say so, and
-still update **this** block.
+still update **this** block (when there is no conflicting write).
+
+**Handoff-only leftovers:** if the current handoff lists next steps or carried items that are
+not already rows in `open.md`, **do not replace the handoff** until those items exist in
+`open.md` with their **original** ownership (Session = the old Last Session heading; do not
+assign them to this session as a new current task). Do not drop them. Do not import them as
+new work you just started. If you cannot preserve them that way, leave the handoff file unchanged.
 
 Handoff is short navigation, not current-truth:
 
@@ -125,29 +135,29 @@ Do not make new decisions at close. Keep the file short.
 
 ### If this tool can edit files
 
-Re-read `memory/handoff.md`, `memory/open.md`, and (if you will touch it) `MEMORY.md`.
-If any of those **changed** since you read them for this close, or another session may
-be writing them, **stop** — except you may still update **this session's located log
-block**. Do not overwrite a newer handoff or someone else's `open.md` rows. Named
-transfer is required before you retitle inherited rows.
+Re-read `memory/handoff.md`, `memory/open.md`, today's or the recorded log if it exists,
+and (if you will touch it) `MEMORY.md`.
+If those files **changed** since this close's last read, that is a conflicting write:
+pause **all** shared-memory writes and ask. Do not still write your own log block.
 
-Then write. **Do not** `git add .`. **Do not** commit or push unless the user already
-asked for that **specific** action and named the files. Commit is not push.
+If there is no conflict, write. Do not overwrite a newer handoff or someone else's
+`open.md` rows. Named transfer is required before you retitle inherited rows.
+
+**Do not** `git add .`. **Do not** commit or push unless the user already asked for that
+**specific** action and named the files. Commit is not push.
 
 ### If this tool cannot edit files
 
 Prepare exact text. Confirm: `Not saved — exact paste text prepared.`
+Name each destination:
 
-- the one log block
-- proposed `handoff.md` **only if** this close may replace it (Step 2)
-- `open.md` as **row edits** if the file may have changed; full file only against a
-  **supplied, unchanged** copy the user still has
+- `memory/YYYY-MM-DD.md` — this session's one close block (recorded file + heading)
+- `memory/handoff.md` — **proposed** full file, only if Step 2 allows replacement
+- `memory/open.md` — **proposed** row edits (full file only against a supplied unchanged copy)
 
 Replacement of a full file or full block is allowed only against that unchanged copy.
-If the file may have changed, or ownership is unclear: **stop**. Get current contents,
-or give a precisely identified row/block edit.
-
-Retry of the same heading: replace that block, do not duplicate.
+If the file may have changed: **stop** all shared-memory proposals except asking for
+current contents. Retry of the same heading: propose replacing that block, do not duplicate.
 
 ---
 
@@ -155,13 +165,15 @@ Retry of the same heading: replace that block, do not duplicate.
 
 ```text
 Session closed.
-- Log: this session's block updated (recorded file + heading kept on retry)
-- Handoff: rewritten because this block won / left unchanged (not the winner)
-- Open work: rows added or named rows updated / none
-- Long-term memory updated: yes/no
+- Log: this session's block saved locally / prepared for paste (recorded file + heading kept on retry)
+- Handoff: saved rewrite because this block won / left unchanged / proposed rewrite / proposed leave unchanged
+- Open work: saved row changes / proposed row changes / none
+- Long-term memory: saved yes/no / proposed yes/no
 - Files: saved locally / Not saved — exact paste text prepared
 - Git: none / committed (asked) / pushed (asked)
 ```
+
+For unsaved paste, say **prepared** / **proposed**, never “updated” or “rewritten” as if the files changed.
 
 Never say saved, committed, or pushed unless that actually happened.
 

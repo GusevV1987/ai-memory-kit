@@ -26,7 +26,7 @@ Do not overwrite an existing `CLAUDE.md` or Cursor rule. Add a pointer instead.
 
 - **Claude Code:** copy [examples/CLAUDE.md](examples/CLAUDE.md) or `@` import `AGENTS.md` ([Claude memory](https://code.claude.com/docs/en/memory)).
 - **Cursor:** add [examples/cursor-rule.mdc](examples/cursor-rule.mdc) under `.cursor/rules/` ([rules](https://cursor.com/docs/rules)).
-- **ChatGPT / chat-only:** Custom Instructions **cannot read your disk**. Attach or paste the **actual file contents** each session — procedure: `MASTER.md` or `AGENTS.md`, `START.md`, `skills/close/SKILL.md`; state: `MEMORY.md`, `memory/handoff.md`, `memory/open.md`. A short reminder lives in [examples/chatgpt-custom-instructions.md](examples/chatgpt-custom-instructions.md).
+- **ChatGPT / chat-only:** Custom Instructions **cannot read your disk**. Attach or paste the **actual file contents** each session — rules: `MASTER.md` **and** `AGENTS.md`; procedure: `START.md`, `skills/close/SKILL.md`; state: `MEMORY.md`, `memory/handoff.md`, `memory/open.md`; plus the current/recorded daily log or `memory/_TEMPLATE.md` if needed. Name paste destinations. [example](examples/chatgpt-custom-instructions.md).
 - **Anything else that can read the folder:** `Read START.md and begin.` (`START.md` loads `MASTER.md` / `AGENTS.md` if they are not already in context.)
 
 Optional bb: [examples/bb.md](examples/bb.md).
@@ -35,7 +35,7 @@ Optional bb: [examples/bb.md](examples/bb.md).
 
 You already have a goal. Say it in the first message, for example:
 
-> Read START.md. Draft a one-page outline of a weekend walking tour of Lisbon (fiction only). Write it to drafts/lisbon-outline.md.
+> Read START.md. Draft a one-page fictional weekend walking tour of Lisbon. Write it to drafts/lisbon-outline.md. Title, three neighborhoods, and a "what this is not" paragraph. Leave a fourth neighborhood for later — record that follow-up in open.md when we close.
 
 The AI should **not** ask what you want to do.
 
@@ -61,6 +61,6 @@ a different **model family** reviews. You do not need three subscriptions.
 
 **Do I need all the skills?** No. Start and close are enough.
 
-**Chat-only?** Yes. Attach/paste procedure files and state files (see step 3). Close prepares paste text. That is not a save until you paste it.
+**Chat-only?** Yes. Attach/paste **both** rule files plus procedures, state files, and the current log when needed (see step 3). Close **prepares** paste text. That is not a save until you paste it.
 
 **Slash commands?** Only if your tool actually has them. Otherwise read the `SKILL.md` file.

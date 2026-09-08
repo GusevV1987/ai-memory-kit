@@ -19,18 +19,14 @@ This repo as shipped is a blank starter. **Your copy is not automatically safe t
 protect tracked templates (`MEMORY.md`, `memory/handoff.md`, `memory/open.md`, daily logs) if you
 pasted real notes or secrets into them.
 
-Review **all** of these before any upload or "publish":
+Review **every file in the export and its metadata**, plus retained **git history** if you keep it
+(Option B). Folder permission to read this kit is not permission to open credential files.
 
-- `MEMORY.md`
-- `memory/handoff.md`
-- `memory/open.md`
-- every `memory/*.md` log
-- any examples you added
-- `git status`
-- **git history** if you will keep it (Option B)
-
-If any of those contain personal, customer, or secret content, do not publish this copy.
-Publish a cleaned fictional export instead.
+The following are examples, **not** a complete list: `MASTER.md`, `AGENTS.md`, `START.md`,
+`MEMORY.md`, `IDEAS.md`, `context/`, `drafts/`, `examples/`, `skills/`, `agents/`,
+`memory/` (including `open.md`, `handoff.md`, and logs), `.gitignore`, git status, commit
+messages, and history. If any export file or old commit contains personal, customer, or
+secret content, do not publish this copy. Publish a cleaned fictional export instead.
 
 If a secret already landed in git history, removing it from the current files is not enough.
 See GitHub: [Removing sensitive data from a repository](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).

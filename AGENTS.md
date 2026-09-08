@@ -55,7 +55,9 @@ Every session records the same **close block** in `memory/YYYY-MM-DD.md` (newest
 
 Always include heading + Summary + Work done + Next steps. No session numbers — the timestamp
 orders sessions. Then refresh `memory/handoff.md` **only if this block is the winning close**
-(later finish time; equal times → lower block in the log). Unfinished work lives in
+(later finish time; equal times → lower block in the log) **and** the current handoff has no
+next steps that exist only there — preserve those in `open.md` with original ownership first;
+do not drop them or import them as this session’s new current task. Unfinished work lives in
 [memory/open.md](memory/open.md).
 
 If this tool cannot edit files: `Not saved — exact paste text prepared.` Do not claim files were saved.
