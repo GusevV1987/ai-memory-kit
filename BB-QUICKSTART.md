@@ -1,7 +1,7 @@
 # Work in bb
 
 First useful task in this folder after bb and a provider are set up. No coding.
-Git is not required.
+No Git commands are needed for this exercise.
 
 **bb** organizes projects and conversations. The connected AI service (the
 **tool**) provides access. The selected **model** does the work. You do not need
@@ -32,8 +32,10 @@ That is optional. `Read START.md` is enough.
 
 ## 1. Private working folder
 
-Download a ZIP of this kit and unzip it somewhere only you (or your approved
-workspace) should see. Do not fill in a public copy of someone else's notes.
+Download the kit ZIP
+([main.zip](https://github.com/GusevV1987/ai-memory-kit/archive/refs/heads/main.zip))
+and unzip it somewhere only you (or your approved workspace) should see. Do not
+fill in a public copy of someone else's notes.
 
 Leave `MEMORY.md`, `memory/handoff.md`, and `memory/open.md` empty until they
 are your real notes. Do not copy DEMO rows from `examples/`.
@@ -86,34 +88,48 @@ toner shelf and (2) draft the returns sheet. Do not email anyone.
 **Expected:** `drafts/friday-huddle.md` (or a pasted draft marked not saved). The
 model does not ask what the goal is. No send. No extra projects.
 
-**Check by reading the draft:** title; ≤3 agenda bullets; Priya + toner; Sam +
-returns sheet; a "what this is not" paragraph; clearly fictional.
+**Check by reading the draft:** title; ≤3 agenda bullets for a 20-minute huddle;
+Priya + toner; Sam + returns sheet; a "what this is not" paragraph; cafe tasting
+left out of scope; no facts that were not in the notes; clearly fictional.
 
 ## 4. Second-family review
 
 Use a **different actual model family** than whoever wrote the draft. If you do
 not know the family, say the review is unverified.
 
-Open another thread on the **same folder**, or paste the draft plus this prompt
-into another chat (manual fallback). That reviewer does not wrap up the parent
-session.
+Open another thread on the **same folder**, or paste this prompt plus the
+**original fictional notes and the draft** (copy/paste the original task and the
+model’s output is fine) into another chat. That reviewer does not wrap up the
+parent session.
 
 ```text
 Read-only. Do not edit files. Do not write memory/. Do not wrap up or /close.
 Independence: different actual model family than every author of the draft;
 another app of the same family does not count. If unknown, say unverified.
 
-Artifact path: drafts/friday-huddle.md
-If you cannot see that file, use only the draft pasted below. Do not guess from
-"same folder."
+Artifact: drafts/friday-huddle.md and/or the draft pasted below.
+Also use the original fictional notes pasted below (same notes as the writing
+task). Do not guess missing input from "same folder."
+
+Original fictional notes:
+Date: 12 March 2026. Attending: Priya (ops), Sam (support), Jordan (notes).
+Priya: Warehouse printer on floor 2 jammed twice this week; spare toner is in
+the closet but nobody labeled the shelf.
+Sam: Two customers asked for a one-page "how we handle returns" sheet. We do not
+have one. They can wait until Friday.
+Jordan: Cafe next door offered a tasting on Thursday; we are not going. Out of scope.
+Asked for next week: a short Friday huddle agenda, plus owners for (1) label the
+toner shelf and (2) draft the returns sheet. Do not email anyone.
 
 Checklist:
 1. Has a title
-2. Agenda of at most three bullets
+2. Agenda of at most three bullets for a 20-minute Friday huddle
 3. Priya owns labeling the toner shelf
 4. Sam owns drafting the returns sheet
 5. Has a "what this is not" paragraph
 6. Clearly fictional
+7. Cafe tasting is out of scope (not an agenda item or action)
+8. No unsupported facts — nothing that is not in the notes
 Drafting the returns sheet itself is out of scope.
 
 Return findings only: pass / issues. Review is not permission to send or publish.
@@ -127,7 +143,7 @@ accept, reject, or park each issue.
 In the **original** thread say `wrap up` (or `/close` only if this tool has that
 command). Ask it to record the returns-sheet follow-up in `open.md`.
 
-Git is not required. Close does not commit or push unless you ask.
+No Git commands are needed for this exercise. Close does not commit or push unless you ask.
 
 Expect a daily-log block, maybe an `open.md` row, and a handoff only if this
 close is the latest. If files were not written: `Not saved — exact paste text
@@ -135,11 +151,15 @@ prepared` — then you paste.
 
 ## 6. Next session
 
-> Continue the returns sheet: add a one-page fictional "how we handle returns"
-> outline to drafts/friday-huddle.md. That is the named open item. Leave any
-> other open.md rows untouched.
+```text
+Read START.md. Do not ask me for a different goal.
+Continue the returns sheet: add a one-page fictional "how we handle returns"
+outline to drafts/friday-huddle.md. That is the named open item. Leave any
+other open.md rows untouched.
+```
 
-Same folder, same or different model.
+Same folder, same or different model. `Read START.md` is required here because
+optional bb instruction injection was not installed for this path.
 
 ---
 
