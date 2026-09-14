@@ -8,7 +8,7 @@ Read [MASTER.md](MASTER.md) for how to talk and what is off-limits.
 
 ## What This Folder Is
 
-A portable AI memory kit: instructions, long-term notes, session handoff, and workflows.
+A portable AI workspace kit: instructions, long-term notes, session handoff, and workflows.
 
 It is not a secret vault and not a dump of private history.
 

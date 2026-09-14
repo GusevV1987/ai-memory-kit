@@ -33,7 +33,7 @@ That is optional. `Read START.md` is enough.
 ## 1. Private working folder
 
 Download the kit ZIP
-([main.zip](https://github.com/GusevV1987/ai-memory-kit/archive/refs/heads/main.zip))
+([main.zip](https://github.com/GusevV1987/ai-workspace-kit/archive/refs/heads/main.zip))
 and unzip it somewhere only you (or your approved workspace) should see. Do not
 fill in a public copy of someone else's notes.
 
