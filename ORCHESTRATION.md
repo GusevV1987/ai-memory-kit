@@ -167,18 +167,18 @@ Re-read the brief and the current files first. Files are the record; chat memory
 
 ### Before interrupted work continues
 
-Use these steps for a usage limit, a failed helper, or any stopped writer, before anything
-continues or a replacement starts.
+Use these steps, in order, for a usage limit, a failed helper, or any stopped writer.
+Nothing continues and no replacement starts until step 3.
 
-1. **Check current status.** A queued retry may already have started.
-2. **Keep one writer.** Either let that thread's own retry continue and start nothing else,
-   or replace it: stop the old thread, cancel any pending retry (bb shows one on a card above
-   the message box), and confirm the thread is no longer running.
-3. **Read what exists** before a replacement starts: the partial output and the saved files.
-   Treat them as `unverified: interrupted` until they pass the brief's checks.
-4. **Check the outside world** before repeating anything that sends, publishes, pays, or
-   deletes: look at the sent mail, the published page, or the payment record. A retry does
-   not make repeating it safe.
+1. **Stop everything first.** Check the thread's status: an automatic retry may already be
+   running. Stop the thread, cancel any waiting retry (bb shows one on a card above the
+   message box), and confirm the thread is no longer running.
+2. **Reconcile what happened.** Read the partial output and the saved files, and treat them
+   as `unverified: interrupted`. If anything may already have been sent, published, paid, or
+   deleted, check the sent mail, the published page, or the payment record. If you cannot
+   tell, keep the work stopped and ask the owner; do not repeat it, even through a retry.
+3. **Resume in exactly one place.** Continue that same thread or start one replacement, never
+   both. Check the partial work against the brief before building on it.
 
 **Usage limit mid-draft**
 
