@@ -15,8 +15,8 @@ for setup help. No model can grant itself missing access.
 ## What you need
 
 - bb ([download the desktop app](https://github.com/get-bb/bb/releases/tag/desktop-latest);
-  product notes: [bb README](https://github.com/get-bb/bb/blob/desktop-v0.42.1/README.md),
-  [bb-app](https://github.com/get-bb/bb/blob/desktop-v0.42.1/packages/bb-app/README.md))
+  product notes: [bb README](https://github.com/get-bb/bb/blob/desktop-v0.43.1/README.md),
+  [bb-app](https://github.com/get-bb/bb/blob/desktop-v0.43.1/packages/bb-app/README.md))
 - At least one **configured provider** (the AI you already use; bb can pick up
   existing sign-in — see the bb-app README)
 - For review: a **second model family** (another provider you already have, or
@@ -25,7 +25,7 @@ for setup help. No model can grant itself missing access.
 You do **not** need to install kit skills or run a command-line setup to do this
 exercise. In the thread, tell the model to read files.
 
-bb can also inject a workspace `.bb/AGENTS.md` ([configuration](https://github.com/get-bb/bb/blob/desktop-v0.42.1/docs/configuration.md)).
+bb can also inject a workspace `.bb/AGENTS.md` ([configuration](https://github.com/get-bb/bb/blob/desktop-v0.43.1/docs/configuration.md)).
 That is optional. `Read START.md` is enough.
 
 ---
@@ -50,6 +50,8 @@ workspace owner — see Troubleshooting.)
 
 The notes below are **complete input**. Do not browse the web. Do not use a real
 meeting. Do not send mail or publish anything.
+
+This step is **solo**: one thread writes, and you check the result.
 
 Paste this whole prompt:
 
@@ -95,7 +97,9 @@ left out of scope; no facts that were not in the notes; clearly fictional.
 ## 4. Second-family review
 
 Use a **different actual model family** than whoever wrote the draft. If you do
-not know the family, say the review is unverified.
+not know the family, say the review is unverified. This step makes the task a
+**pair**: one writer, one read-only reviewer. Use a new thread, not a fork: a fork
+copies the writer's conversation.
 
 Open another thread on the **same folder**, or paste this prompt plus the
 **original fictional notes and the draft** (copy/paste the original task and the
@@ -161,6 +165,12 @@ other open.md rows untouched.
 Same folder, same or different model. `Read START.md` is required here because
 optional bb instruction injection was not installed for this path.
 
+## 7. More than one model (optional)
+
+When a task needs helpers for independent parts, or you want the brief on a bb task
+card, read [ORCHESTRATION.md](ORCHESTRATION.md). The brief template, with this Friday
+huddle filled in, is [examples/task-brief.md](examples/task-brief.md).
+
 ---
 
 ## Troubleshooting
@@ -172,3 +182,6 @@ optional bb instruction injection was not installed for this path.
 | `/close` or `/start` does nothing | Type `wrap up` or `Read START.md and begin.` Slash commands are optional. |
 | Draft only in chat | That is **not saved**. Paste it into `drafts/friday-huddle.md` yourself, or ask for exact paste text with destinations named. |
 | Unsure whose row to edit | Leave unrelated `open.md` rows alone. |
+| Usage-limit message mid-draft | Keep the draft and treat it as unverified. Do not switch accounts. Check for a waiting retry above the message box before continuing. See [When something breaks](ORCHESTRATION.md#when-something-breaks). |
+| Thread failed or went quiet | Read that thread's own last output first. Stop it and cancel any waiting retry before starting a replacement, so two writers cannot resume. |
+| Reviewer's findings lost | Recover them if they were saved. If not, and the draft is unchanged, run the step 4 review again in a new thread. Never assume a pass. |
