@@ -1,4 +1,8 @@
-# AI Memory Kit
+# AI Workspace Kit
+
+**Shared memory, clear ownership, and reliable handoffs for founders and teams using AI.**
+
+Formerly **AI Memory Kit**.
 
 **Portable working context for AI** — markdown files in a folder you keep.
 A file-capable tool can read them. A chat-only tool needs you to attach or paste

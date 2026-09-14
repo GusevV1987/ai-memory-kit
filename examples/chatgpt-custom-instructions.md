@@ -15,7 +15,7 @@ say **prepared** / **proposed**, not updated.
 Optional reminder (still attach the files):
 
 ```text
-I will attach my AI memory kit files (rules, procedures, and current state).
+I will attach my AI workspace kit files (rules, procedures, and current state).
 If I already stated the goal, do not ask again.
 Unfinished work: memory/open.md (wins over handoff.md).
 If you cannot edit files: prepare paste text, name destinations, and say
