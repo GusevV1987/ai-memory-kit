@@ -48,8 +48,10 @@ Rules that keep this safe:
 
 ## Write a brief
 
-Helpers and reviewers do not see your chat. Anything they need goes in the brief or in
-files they can open. Copy the template and the filled example in
+Do not assume a helper receives your chat. Put the original inputs in the brief or in files
+it can open. Some helpers do inherit the conversation, such as forks and some built-in
+subagents, so check how your tool shares context before you delegate. Always start a
+reviewer fresh: a new conversation, not a fork. Copy the template and the filled example in
 [examples/task-brief.md](examples/task-brief.md). Tiny tasks need only its short form.
 
 - Freeze the brief before work starts. Change it on purpose, not along the way.
@@ -88,7 +90,8 @@ A ready-made review prompt is in [BB-QUICKSTART.md](BB-QUICKSTART.md), step 4.
 - Helpers return evidence: file path, what they checked, what is still unverified. The head
   combines results; the writer writes the final artifact.
 - Some tools can start helpers inside one conversation (Claude Code and Codex call them
-  subagents). They can be harder to watch and stop, and each one still uses your plan or credits.
+  subagents). Depending on the tool, they start fresh or inherit your conversation. They can
+  be harder to watch and stop, and each one still uses your plan or credits.
 
 ---
 
@@ -162,23 +165,31 @@ Know these before you start:
 
 Re-read the brief and the current files first. Files are the record; chat memory is not.
 
+### Before interrupted work continues
+
+Use these steps for a usage limit, a failed helper, or any stopped writer, before anything
+continues or a replacement starts.
+
+1. **Check current status.** A queued retry may already have started.
+2. **Keep one writer.** Either let that thread's own retry continue and start nothing else,
+   or replace it: stop the old thread, cancel any pending retry (bb shows one on a card above
+   the message box), and confirm the thread is no longer running.
+3. **Read what exists** before a replacement starts: the partial output and the saved files.
+   Treat them as `unverified: interrupted` until they pass the brief's checks.
+4. **Check the outside world** before repeating anything that sends, publishes, pays, or
+   deletes: look at the sent mail, the published page, or the payment record. A retry does
+   not make repeating it safe.
+
 **Usage limit mid-draft**
 
-1. Keep the partial draft. Mark it `unverified: interrupted`.
-2. Report the account and the limit. Do not switch accounts.
-3. Look for a retry that is already waiting (bb shows it on a card above the message box).
-4. Continue from the brief and the saved draft. If you move to a new thread, cancel the
-   waiting retry first.
+1. Keep the partial draft. Report the account and the limit. Do not switch accounts.
+2. Follow the steps above before anything continues, including after the limit resets.
 
 **Helper failed, stopped, or went quiet**
 
 1. Read that helper's own status and last output. The real error is usually there.
-2. Check for a pending or automatic retry. Finished or idle does not mean checked.
-3. Choose one path: retry that thread, or replace it. Before replacing, stop the old thread
-   and cancel its pending retry, so two writers cannot resume.
-4. Keep partial work, marked unverified until it passes the brief's checks.
-5. Never repeat a step that sends, publishes, pays, or deletes until you confirm it did not
-   already happen. A retry does not make that safe.
+2. Finished or idle does not mean checked.
+3. Follow the steps above, then continue in exactly one place.
 
 **Reviewer output lost**
 
@@ -199,7 +210,7 @@ Checked in September 2026. Vendor pages change; re-check a detail before relying
 | Point | Basis |
 |-------|-------|
 | Start simple; add agents only when they clearly help | Vendor guidance: [Anthropic, Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) (Dec 2024); [OpenAI, A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) (Apr 2025) |
-| Helpers need a complete brief and do not share your chat | Vendor docs: [Anthropic, multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Jun 2025); [Claude Code subagents](https://code.claude.com/docs/en/sub-agents) |
+| Helpers need a complete brief; some start fresh, while forks inherit the conversation | Vendor docs: [Anthropic, multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Jun 2025); [Claude Code subagents](https://code.claude.com/docs/en/sub-agents) |
 | Parallel reading is safer than parallel editing | Vendor docs: [Codex subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents); [Claude Code agent teams](https://code.claude.com/docs/en/agent-teams) |
 | Helpers multiply usage | Vendor docs: [Claude Code costs](https://code.claude.com/docs/en/costs); [Codex subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) |
 | bb permission modes, retries, worktrees, and plugins | bb 0.43.1 docs: [threads](https://github.com/get-bb/bb/blob/desktop-v0.43.1/packages/templates/src/templates/bb-guide-threads.md), [environments](https://github.com/get-bb/bb/blob/desktop-v0.43.1/packages/templates/src/templates/bb-guide-environments.md), [configuration](https://github.com/get-bb/bb/blob/desktop-v0.43.1/docs/configuration.md), [Tasks](https://github.com/get-bb/bb/blob/desktop-v0.43.1/plugins/tasks/PLUGIN_OVERVIEW.md), [Workflows](https://github.com/get-bb/bb/blob/desktop-v0.43.1/plugins/workflows/PLUGIN_OVERVIEW.md); the app's built-in `bb guide` |

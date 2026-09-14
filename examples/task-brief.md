@@ -24,7 +24,7 @@ If something is unclear or out of scope: stop and tell me.
 
 ```text
 Outcome:       <what exists when this is done, in one sentence>
-Inputs:        <exact sources, attached or pasted; helpers cannot see my chat>
+Inputs:        <exact sources, attached or pasted; do not rely on my chat>
 Artifact:      <one file or deliverable>. Writer: <one role or thread>
 Boundaries:    Allowed: <files, tools>. Forbidden: <sending, publishing, paying,
                deleting, other folders, credentials, live customer data>
@@ -34,12 +34,15 @@ Roles:         Head (accepts): <who>. Reviewer: <different family, read-only, or
 Budget:        Effort: <setting or "tool default">. Stop after: <time or attempts>
 Stop and ask:  <brief looks wrong; needs more access; usage limit; budget reached>
 Return:        <file path, each check with pass/fail, what is still unverified>
-Restart point: If interrupted, re-read this brief and <artifact>. Do not ask for a
-               new goal. Say saved or not saved.
+Restart point: If interrupted, first follow "Before interrupted work continues" in
+               ORCHESTRATION.md. Then re-read this brief and <artifact>, check it
+               against Done when, and continue in one place. Do not ask for a new
+               goal. Say saved or not saved.
 ```
 
 Skip fields that do not apply. The ones that matter most are Outcome, Inputs, Writer,
-Done when, and Forbidden.
+Done when, and Forbidden. The restart point relies on
+[Before interrupted work continues](../ORCHESTRATION.md#before-interrupted-work-continues).
 
 ---
 
@@ -72,9 +75,11 @@ Stop and ask:  The notes look incomplete; a second file seems needed; a usage-li
                or permission message appears.
 Return:        The file path and checks 1-5 with pass/fail. If the file could not be
                written, the full markdown in chat marked "not saved".
-Restart point: If interrupted, re-read this brief and drafts/friday-huddle.md, then
-               continue the draft. Do not write the returns sheet itself. At wrap-up,
-               record that follow-up as one memory/open.md row.
+Restart point: If interrupted, first follow "Before interrupted work continues" in
+               ORCHESTRATION.md. Then re-read this brief and drafts/friday-huddle.md,
+               check the draft against 1-5, and continue in one place. Do not write the
+               returns sheet itself. At wrap-up, record that follow-up as one
+               memory/open.md row.
 ```
 
 ---
