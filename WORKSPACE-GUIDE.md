@@ -55,7 +55,7 @@ If `open.md` and handoff disagree, **open.md wins**.
 | Cursor | [examples/cursor-rule.mdc](examples/cursor-rule.mdc) — [rules](https://cursor.com/docs/rules) |
 | ChatGPT / chat-only | [examples/chatgpt-custom-instructions.md](examples/chatgpt-custom-instructions.md) — attach real files; Custom Instructions cannot read disk |
 | Codex / repo tools | Root [AGENTS.md](AGENTS.md) — [docs](https://learn.chatgpt.com/docs/agent-configuration/agents-md) |
-| bb | [BB-QUICKSTART.md](BB-QUICKSTART.md) (primary). Optional inject: workspace `.bb/AGENTS.md` ([bb configuration](https://github.com/get-bb/bb/blob/desktop-v0.42.1/docs/configuration.md)) |
+| bb | [BB-QUICKSTART.md](BB-QUICKSTART.md) (primary). Optional inject: workspace `.bb/AGENTS.md` ([bb configuration](https://github.com/get-bb/bb/blob/desktop-v0.43.1/docs/configuration.md)) |
 | Anything else | `Read START.md and follow it` |
 
 ---
@@ -66,12 +66,15 @@ If `open.md` and handoff disagree, **open.md wins**.
 |---------|------|
 | **1 — head writes** | Everyday work. That same session wraps up if you say so and no other closer is named. |
 | **2 — different family reviews** | Consequential drafts. Reviewer is read-only. Same family in another app does not count. You do not need a third paid seat. |
-| **3 — optional executor** | Only if the head should not write files. Executor never writes shared memory and never closes. |
+| **3 — optional executor or helpers** | When parts are independent and splitting saves time, or the head should not write files. The head may still write. Helpers never write shared memory and never close. |
 
 Risk-proportional: a grocery list does not need a second family. A note that
 will be sent or published does.
 
 One writer of shared memory per close. Helpers return work in chat.
+
+Choosing a mode, briefing helpers, costs, and recovering from interruptions:
+[ORCHESTRATION.md](ORCHESTRATION.md).
 
 ---
 
@@ -87,6 +90,9 @@ Do not wrap up or /close.
 ```
 
 Name the closer in the parent thread. Review is not permission to ship.
+
+Fuller template (roles, budget, stop rule, restart point) with a filled example:
+[examples/task-brief.md](examples/task-brief.md).
 
 ---
 

@@ -59,6 +59,9 @@ until you put it in the folder. Git is not required to wrap up.
 
 Two-model walkthrough (file-capable or attach/paste): [examples/beginner.md](examples/beginner.md).
 
+After your first task, if work needs a reviewer or helpers for independent parts, read
+[ORCHESTRATION.md](ORCHESTRATION.md). Copyable brief: [examples/task-brief.md](examples/task-brief.md).
+
 ---
 
 ## License
