@@ -165,6 +165,13 @@ other open.md rows untouched.
 Same folder, same or different model. `Read START.md` is required here because
 optional bb instruction injection was not installed for this path.
 
+## Optional next exercise: mixed inputs
+
+Try the [multimodal Friday huddle](examples/multimodal-huddle.md): a fictional transcript
+and board image become an action table, with a checkpoint for the next conversation.
+Use the text equivalent if your tool cannot inspect the image. No extra plugin or audio
+setup is required. This is optional; the first task above stands on its own.
+
 ## 7. More than one model (optional)
 
 When a task needs helpers for independent parts, or you want the brief on a bb task
@@ -182,6 +189,6 @@ huddle filled in, is [examples/task-brief.md](examples/task-brief.md).
 | `/close` or `/start` does nothing | Type `wrap up` or `Read START.md and begin.` Slash commands are optional. |
 | Draft only in chat | That is **not saved**. Paste it into `drafts/friday-huddle.md` yourself, or ask for exact paste text with destinations named. |
 | Unsure whose row to edit | Leave unrelated `open.md` rows alone. |
-| Usage-limit message mid-draft | Keep the draft and treat it as unverified. Do not switch accounts. Check for a waiting retry above the message box before continuing. See [When something breaks](ORCHESTRATION.md#when-something-breaks). |
+| Usage-limit message mid-draft | Keep the draft and treat it as unverified. Do not switch accounts. Find the affected thread's pending retry above the message box, with its reason and time. Check and cancel it before continuing; restarting the app does not cancel it. See [When something breaks](ORCHESTRATION.md#when-something-breaks). |
 | Thread failed or went quiet | Read that thread's own last output first. Stop it and cancel any waiting retry before starting a replacement, so two writers cannot resume. |
 | Reviewer's findings lost | Recover them if they were saved. If not, and the draft is unchanged, run the step 4 review again in a new thread. Never assume a pass. |

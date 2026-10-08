@@ -63,6 +63,9 @@ until you put it in the folder. Git is not required to wrap up.
 
 Two-model walkthrough (file-capable or attach/paste): [examples/beginner.md](examples/beginner.md).
 
+After a first task: [combine a transcript and an image](examples/multimodal-huddle.md),
+check the result, and resume from a saved checkpoint. Fictional inputs; no audio setup.
+
 After your first task, if work needs a reviewer or helpers for independent parts, read
 [ORCHESTRATION.md](ORCHESTRATION.md). Copyable brief: [examples/task-brief.md](examples/task-brief.md).
 
