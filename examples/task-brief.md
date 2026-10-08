@@ -61,8 +61,9 @@ Resume: <original inputs + current artifact + next bounded step>
 ```
 
 The checkpoint describes **this task**. At an authorized wrap-up, the existing
-`memory/open.md` row tracks its unfinished follow-up and links back here. Keep one row
-for that follow-up; do not duplicate it on each handoff. Follow the kit's ownership and
+`memory/open.md` row tracks its unfinished follow-up and links back here. Update that row,
+or create one if this session originated the follow-up and no row exists. Keep one row
+per follow-up; do not duplicate it on each handoff. Follow the kit's ownership and
 [close rules](../skills/close/SKILL.md). Original instructions and later user decisions
 remain authoritative; a checkpoint does not grant new permission.
 

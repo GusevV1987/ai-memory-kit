@@ -110,7 +110,8 @@ Ask the reviewer to read only and return findings, without editing files or shar
 - Cafe tasting excluded; the returns sheet itself still deferred.
 - Sources and image-inspected/text-only status truthful.
 - Checkpoint names the artifact/version, saved status, review status and remaining work.
-- The rendered table/image is readable, and the text equivalent preserves every board fact.
+- The rendered table is readable. If you can inspect the image, check its readability and
+  agreement with the text equivalent. Otherwise record **image rendering/parity unverified**.
 
 Bring findings to the original writer, who resolves them against the sources. If it changes
 the draft, update its version and review the changed version. Record the actual result and

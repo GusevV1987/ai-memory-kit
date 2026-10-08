@@ -54,7 +54,8 @@ checks; do not call that “tests passed.” For consequential work, the kit's
 
 Keep the [checkpoint](../../examples/task-brief.md#optional-checkpoint-for-ongoing-work)
 in the existing brief. At an authorized wrap-up, the designated closer records the follow-up
-in the existing `memory/open.md` row under the [close rules](../close/SKILL.md).
+in the existing `memory/open.md` row, or creates one if this session originated the
+follow-up and no row exists, under the [close rules](../close/SKILL.md).
 Helpers return findings and never write shared memory.
 
 Say what actually happened:
