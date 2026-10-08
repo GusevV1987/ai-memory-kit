@@ -129,9 +129,10 @@ Know these before you start:
   files, including your notes, as far as their permissions allow. Use only an approved folder,
   holding only data those models may see.
 - **Permission modes.** bb's modes include `accept-edits`, `auto`, and `full`; what a thread
-  offers can vary by provider. None of these is a read-only mode, and a child thread cannot
-  get more access than its parent. "Read-only" is part of the reviewer's brief, so check
-  afterwards that no files changed. Never switch to `full` to unblock a helper or reviewer;
+  offers can vary by provider. None of these is a read-only mode. A child inherits permissions by default, but explicit
+  child settings can override that default; nesting is not a permission cap. Host restrictions
+  still apply. Check each child's actual mode. "Read-only" is part of the reviewer's brief,
+  so check afterwards that no files changed. Never switch to `full` to unblock a helper or reviewer;
   fix the brief or ask the owner.
 - **The picker shows what you asked for.** It is not proof of which model answered. If the
   family matters and you cannot confirm it, write `independence unverified`.
@@ -143,7 +144,8 @@ Know these before you start:
 - **Instructions are not locks.** Only a tool's own permission or sandbox setting enforces
   anything. Find that setting before the first task.
 - **Least access.** Reviewers and researchers only read. Use read-only permissions where the
-  tool offers them; otherwise confirm nothing changed. Helpers never get more access than the writer.
+  tool offers them; otherwise confirm nothing changed. This kit recommends giving helpers
+  no broader access than their task needs; the parent relationship does not enforce that.
 - **No secrets.** Never paste passwords or keys into a brief. Never copy credential files into
   a helper's folder or a worktree. Ask the owner for approved access.
 - **Usage adds up.** Every helper and reviewer runs its own conversation on your plan or
@@ -170,9 +172,13 @@ Re-read the brief and the current files first. Files are the record; chat memory
 Use these steps, in order, for a usage limit, a failed helper, or any stopped writer.
 Nothing continues and no replacement starts until step 3.
 
-1. **Stop everything first.** Check the thread's status: an automatic retry may already be
-   running. Stop the thread, cancel any waiting retry (bb shows one on a card above the
-   message box), and confirm the thread is no longer running.
+1. **Stop the affected writer first.** Check its status: an automatic retry may already be
+   running. Stop that thread, cancel its pending retry, and confirm it is no longer running.
+   Leave unrelated work alone. In BB 0.45.0, pending retries survive a server restart, so
+   restarting the app does not cancel them. The workspace owner can check with
+   `bb provider-retry status <thread-id>` and cancel with
+   `bb provider-retry cancel <thread-id>`; replace `<thread-id>` with the affected thread's ID.
+   Check status again before resuming or starting a replacement.
 2. **Reconcile what happened.** Read the partial output and the saved files, and treat them
    as `unverified: interrupted`. If anything may already have been sent, published, paid, or
    deleted, check the sent mail, the published page, or the payment record. If you cannot
@@ -205,7 +211,9 @@ back. Text that exists only in chat is `not saved`.
 
 ## Where this comes from
 
-Checked in September 2026. Vendor pages change; re-check a detail before relying on it.
+Core references checked in September 2026. BB permission inheritance and pending-retry
+behaviour rechecked against 0.45.0 on October 8, 2026; other references retain their earlier
+date. Vendor pages and app interfaces change; re-check a detail before relying on it.
 
 | Point | Basis |
 |-------|-------|
@@ -213,7 +221,8 @@ Checked in September 2026. Vendor pages change; re-check a detail before relying
 | Helpers need a complete brief; some start fresh, while forks inherit the conversation | Vendor docs: [Anthropic, multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) (Jun 2025); [Claude Code subagents](https://code.claude.com/docs/en/sub-agents) |
 | Parallel reading is safer than parallel editing | Vendor docs: [Codex subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents); [Claude Code agent teams](https://code.claude.com/docs/en/agent-teams) |
 | Helpers multiply usage | Vendor docs: [Claude Code costs](https://code.claude.com/docs/en/costs); [Codex subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) |
-| bb permission modes, retries, worktrees, and plugins | bb 0.43.1 docs: [threads](https://github.com/get-bb/bb/blob/desktop-v0.43.1/packages/templates/src/templates/bb-guide-threads.md), [environments](https://github.com/get-bb/bb/blob/desktop-v0.43.1/packages/templates/src/templates/bb-guide-environments.md), [configuration](https://github.com/get-bb/bb/blob/desktop-v0.43.1/docs/configuration.md), [Tasks](https://github.com/get-bb/bb/blob/desktop-v0.43.1/plugins/tasks/PLUGIN_OVERVIEW.md), [Workflows](https://github.com/get-bb/bb/blob/desktop-v0.43.1/plugins/workflows/PLUGIN_OVERVIEW.md); the app's built-in `bb guide` |
+| bb permission inheritance and pending retries | bb 0.45.0 official guides: [threads](https://github.com/get-bb/bb/blob/desktop-v0.45.0/packages/templates/src/templates/bb-guide-threads.md), [providers](https://github.com/get-bb/bb/blob/desktop-v0.45.0/packages/templates/src/templates/bb-guide-providers.md); checked Oct 8, 2026 |
+| Other bb worktree and plugin guidance | September reference, bb 0.43.1: [environments](https://github.com/get-bb/bb/blob/desktop-v0.43.1/packages/templates/src/templates/bb-guide-environments.md), [configuration](https://github.com/get-bb/bb/blob/desktop-v0.43.1/docs/configuration.md), [Tasks](https://github.com/get-bb/bb/blob/desktop-v0.43.1/plugins/tasks/PLUGIN_OVERVIEW.md), [Workflows](https://github.com/get-bb/bb/blob/desktop-v0.43.1/plugins/workflows/PLUGIN_OVERVIEW.md); verify against your installed version |
 | Fresh reviews caught problems that earlier passes missed; review rounds that added scope created new problems | The author's own project experience in 2026. Not a benchmark |
 | Different-family review, one writer, three rounds, `unverified` labels | This kit's recommendation, not a vendor requirement |
 
