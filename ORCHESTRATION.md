@@ -6,6 +6,7 @@ Optional. Do a first task before reading this:
 
 **Multi-model** here means more than one AI model on one task: a writer, a reviewer,
 and sometimes helpers. It is not about images or audio (that is *multimodal*).
+For an optional mixed-media exercise, see [the multimodal huddle](examples/multimodal-huddle.md).
 
 Nothing here installs, routes, or enforces anything. It is a way to brief, check, and
 recover work. Your tools' own settings decide what a model can actually do.

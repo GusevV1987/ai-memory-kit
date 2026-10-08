@@ -165,6 +165,13 @@ other open.md rows untouched.
 Same folder, same or different model. `Read START.md` is required here because
 optional bb instruction injection was not installed for this path.
 
+## Optional next exercise: mixed inputs
+
+Try the [multimodal Friday huddle](examples/multimodal-huddle.md): a fictional transcript
+and board image become an action table, with a checkpoint for the next conversation.
+Use the text equivalent if your tool cannot inspect the image. No extra plugin or audio
+setup is required. This is optional; the first task above stands on its own.
+
 ## 7. More than one model (optional)
 
 When a task needs helpers for independent parts, or you want the brief on a bb task

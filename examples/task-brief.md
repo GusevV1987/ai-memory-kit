@@ -34,6 +34,7 @@ Roles:         Head (accepts): <who>. Reviewer: <different family, read-only, or
 Budget:        Effort: <setting or "tool default">. Stop after: <time or attempts>
 Stop and ask:  <brief looks wrong; needs more access; usage limit; budget reached>
 Return:        <file path, each check with pass/fail, what is still unverified>
+Checkpoint:    <optional for ongoing work; use the five-line format below>
 Restart point: If interrupted, first follow "Before interrupted work continues" in
                ORCHESTRATION.md. Then re-read this brief and <artifact>, check it
                against Done when, and continue in one place. Do not ask for a new
@@ -45,6 +46,31 @@ Done when, and Forbidden. The restart point relies on
 [Before interrupted work continues](../ORCHESTRATION.md#before-interrupted-work-continues).
 
 ---
+
+## Optional checkpoint for ongoing work
+
+Keep this in the existing task brief, not in a new parallel task list. Update it at a
+meaningful handoff. A task card or brief may link to the current artifact instead of copying it.
+
+```text
+Artifact: <path or attached contents>, <version>; saved and read back / not saved
+Status: <draft / reviewed / published; what was actually checked>
+Decisions: <accepted choices and exclusions, with their source>
+Remaining: <each unfinished agreed outcome; next owner/action or specific wait>
+Resume: <original inputs + current artifact + next bounded step>
+```
+
+The checkpoint describes **this task**. At an authorized wrap-up, the existing
+`memory/open.md` row tracks its unfinished follow-up and links back here. Keep one row
+for that follow-up; do not duplicate it on each handoff. Follow the kit's ownership and
+[close rules](../skills/close/SKILL.md). Original instructions and later user decisions
+remain authoritative; a checkpoint does not grant new permission.
+
+Before continuing in another tool, supply the original inputs, the current artifact and
+this checkpoint. First ask it to state what is complete, what remains, and what is excluded.
+If it cannot see a source or two records disagree, resolve that gap before acting. A saved
+file does not prove another tool loaded it. For an interrupted writer, also follow the
+[recovery steps](../ORCHESTRATION.md#before-interrupted-work-continues).
 
 ## Filled example: Friday huddle (fiction)
 
